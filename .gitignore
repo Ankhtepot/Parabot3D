@@ -1,0 +1,6 @@
+# ignore an entire directory
+/Library/il2cpp_cache/
+/Temp/
+/.git/
+/.idea/
+/Assets/Imports
