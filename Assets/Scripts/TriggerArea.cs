@@ -23,12 +23,10 @@ public class TriggerArea : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other) {
-        print("trigger enter fired with: " + other.name);
         OnRollOver_Trigger.Invoke();
     }
 
     private void OnTriggerExit(Collider other) {
-        print("trigger exit fired with: " + other.name);
         OnRollAway_Trigger.Invoke();
     }
 }

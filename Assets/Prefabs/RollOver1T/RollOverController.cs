@@ -16,9 +16,8 @@ public class RollOverController : MonoBehaviour, IRollOverReceiver {
     [SerializeField] public bool stateOfSwitch = false;
 
     public void OnRollOver() {
-        //print("RollOver received");
         if (isOnlyFromOffToOn || !stateOfSwitch) switchingOn();
-        else if (stateOfSwitch) OffSwitched.Invoke();
+        else if (stateOfSwitch) switchingOff();
     }
 
     private void switchingOn() {
