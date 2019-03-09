@@ -28,8 +28,6 @@ public class PlayerMovement : MonoBehaviour {
 
     private void Update() {
         if (RB.velocity.y < -2f) acceptJumpLand = true;
-        FeetPivotPosition();
-        //changeStaticObjectsPosition();
         Jump();
     }
 
@@ -44,16 +42,6 @@ public class PlayerMovement : MonoBehaviour {
                                      , joystick.GetVertical() * moveMultiplier * Time.deltaTime);
         //print($"Movement/newVelocity: {newVelocity}");
         RB.velocity = newVelocity;
-    }
-
-    private void FeetPivotPosition() {
-        player.feetPivot.transform.position = transform.position + feetPivotPositionAdjustment;
-    }
-
-    private void changeStaticObjectsPosition() {
-        foreach(GameObject obj in staticObjects) {
-            obj.transform.position = transform.position;
-        }
     }
 
     private bool IsTouchingGround() {

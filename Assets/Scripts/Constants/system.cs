@@ -6,5 +6,6 @@ namespace Assets.Scripts.Constants {
         public const String JUMP = "Jump";
         public const String JUMPLANDINTERACTIBLE = "JumpLandInteractible";
         public const String ROLLOVERINTERACTIBLE = "RollOverInteractible";
+        public const String PROXIMITYTRIGGER = "ProximityCollider";
     }
 }

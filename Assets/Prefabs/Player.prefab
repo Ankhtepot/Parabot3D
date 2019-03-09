@@ -54,6 +54,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2946128179700355377}
+  - component: {fileID: 796671325}
   m_Layer: 9
   m_Name: feetPivot
   m_TagString: Untagged
@@ -69,12 +70,31 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2946128179700355382}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.28, y: 0, z: -11.23}
+  m_LocalPosition: {x: 0, y: -0.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2946128178753790833}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1818360608 &796671325
+PositionConstraint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2946128179700355382}
+  m_Enabled: 1
+  m_Weight: 1
+  m_TranslationAtRest: {x: 0, y: -0.4, z: 0}
+  m_TranslationOffset: {x: 0, y: -0.4, z: 0}
+  m_AffectTranslationX: 1
+  m_AffectTranslationY: 1
+  m_AffectTranslationZ: 1
+  m_IsContraintActive: 1
+  m_IsLocked: 1
+  m_Sources:
+  - sourceTransform: {fileID: 2946128179805544600}
+    weight: 1
 --- !u!1 &2946128179805544605
 GameObject:
   m_ObjectHideFlags: 0
@@ -91,8 +111,8 @@ GameObject:
   - component: {fileID: 2946128179805544602}
   - component: {fileID: 2946128179805544603}
   m_Layer: 9
-  m_Name: Ball
-  m_TagString: Untagged
+  m_Name: Engine
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -104,8 +124,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2946128179805544605}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.28, y: 0.579, z: -11.23}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2946128178753790833}
@@ -199,9 +219,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveMultiplier: 200
   jumpPower: 50
-  player: {fileID: 2946128179805544603}
-  feetPivotPositionAdjustment: {x: 0, y: -0.4, z: 0}
   feetOBoxReductor: 4
+  staticObjects:
+  - {fileID: 0}
+  feetPivotPositionAdjustment: {x: 0, y: -0.4, z: 0}
+  player: {fileID: 2946128179805544603}
   feetSphereIncludes:
   - {fileID: 0}
   - {fileID: 2946128179805544607}
