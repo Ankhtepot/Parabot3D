@@ -1,0 +1,44 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using TMPro;
+using UnityEngine;
+
+public class InfoText : MonoBehaviour {
+    [SerializeField] Animator animator;
+#pragma warning disable 649
+    [SerializeField] TextMeshProUGUI textArea;
+#pragma warning restore 649
+    [SerializeField] string message;
+    [SerializeField] float writeSpeed = 0.05f;
+
+    private void Start() {
+        animator = GetComponent<Animator>();
+        message = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.";
+    }
+
+    public void ActivateInfoText() {
+        StartCoroutine(WriteMessage());
+    }
+
+    public void ShowUp(string text) {
+        textArea.text = "";
+        message = text;
+        animator.SetBool(triggers.SHOW, true);
+    }
+
+    private void OnMouseDown() {
+        animator.SetBool(triggers.SHOW, false);
+    }
+
+    IEnumerator WriteMessage() {
+        int messageLength = message.Length;
+        int writtenChars = 0;
+        //print("Starting writing. MessageLength: " + messageLength + " writenChars: "+ writtenChars);
+        while(writtenChars < messageLength) {
+            //print("will write " + message[writtenChars]);
+            yield return new WaitForSecondsRealtime(writeSpeed);
+            textArea.text += message[writtenChars];
+            writtenChars++;
+        }
+    }
+}
