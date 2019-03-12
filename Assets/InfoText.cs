@@ -26,7 +26,9 @@ public class InfoText : MonoBehaviour {
         animator.SetBool(triggers.SHOW, true);
     }
 
-    private void OnMouseDown() {
+    public void HideInfoText() {
+        StopCoroutine(WriteMessage());
+        message = "";
         animator.SetBool(triggers.SHOW, false);
     }
 
@@ -34,11 +36,17 @@ public class InfoText : MonoBehaviour {
         int messageLength = message.Length;
         int writtenChars = 0;
         //print("Starting writing. MessageLength: " + messageLength + " writenChars: "+ writtenChars);
-        while(writtenChars < messageLength) {
-            //print("will write " + message[writtenChars]);
-            yield return new WaitForSecondsRealtime(writeSpeed);
-            textArea.text += message[writtenChars];
-            writtenChars++;
+        if (messageLength > 0) {
+            while (writtenChars < messageLength) {
+                //print("will write " + message[writtenChars]);
+                yield return new WaitForSecondsRealtime(writeSpeed);
+                try {
+                    textArea.text += message[writtenChars++];
+                } catch {
+
+                }
+                //writtenChars++;
+            } 
         }
     }
 }

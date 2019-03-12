@@ -60,6 +60,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Imports\Polygon Arsenal\Demo\Scripts\PolygonBeamScript.cs" />
+    <Compile Include="Assets\Imports\Polygon Arsenal\Demo\Scripts\PolygonButtonScript.cs" />
+    <Compile Include="Assets\Imports\Polygon Arsenal\Demo\Scripts\PolygonFireProjectile.cs" />
+    <Compile Include="Assets\Imports\Polygon Arsenal\Demo\Scripts\PolygonLoopScript.cs" />
+    <Compile Include="Assets\Imports\Polygon Arsenal\Demo\Scripts\PolygonOrbit.cs" />
+    <Compile Include="Assets\Imports\Polygon Arsenal\Demo\Scripts\PolygonProjectileScript.cs" />
+    <Compile Include="Assets\Imports\Polygon Arsenal\Demo\Scripts\PolygonSceneSelect.cs" />
+    <Compile Include="Assets\Imports\Polygon Arsenal\Scripts\PolygonLightFade.cs" />
+    <Compile Include="Assets\Imports\Polygon Arsenal\Scripts\PolygonLightFlicker.cs" />
+    <Compile Include="Assets\Imports\Polygon Arsenal\Scripts\PolygonRotation.cs" />
+    <Compile Include="Assets\Imports\Polygon Arsenal\Scripts\PolygonSoundSpawn.cs" />
+    <Compile Include="Assets\Imports\Real Materials\Showcase\Scripts\Camera_WASD_movement.cs" />
+    <Compile Include="Assets\Imports\Real Materials\Showcase\Scripts\LPPV_lighting_update_only_once.cs" />
     <Compile Include="Assets\Imports\SampleScenes\Menu\Scripts\MenuSceneLoader.cs" />
     <Compile Include="Assets\Imports\SampleScenes\Menu\Scripts\PauseMenu.cs" />
     <Compile Include="Assets\Imports\SampleScenes\Menu\Scripts\SceneAndURLLoader.cs" />
@@ -153,6 +166,7 @@
     <Compile Include="Assets\Prefabs\Combined tiles simple\1tileWide2sidesSlidingDoor\DoorController.cs" />
     <Compile Include="Assets\Prefabs\Combined tiles simple\PressurePlate\PressurePlateController.cs" />
     <Compile Include="Assets\Prefabs\Combined tiles simple\RollOver1T\RollOverController.cs" />
+    <Compile Include="Assets\Prefabs\UI parts\ResponsiveElementUI.cs" />
     <Compile Include="Assets\Scripts\Constants\system.cs" />
     <Compile Include="Assets\Scripts\Constants\triggers.cs" />
     <Compile Include="Assets\Scripts\HVScaler.cs" />
@@ -169,58 +183,65 @@
     <None Include="Assets\Imports\Standard Assets\Effects\ToonShading\Shaders\ToonBasic.shader" />
     <None Include="Assets\Imports\Universal Sound FX\#Game Genre References\Platform.txt" />
     <None Include="Assets\Imports\Universal Sound FX\#Game Genre References\Real Time Stategy (RTS) Medieval.txt" />
-    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
-    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
+    <None Include="Assets\Imports\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
+    <None Include="Assets\Imports\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\Imports\Standard Assets\Prototyping\Shaders\WorldCoordDiffuse.shader" />
     <None Include="Assets\Imports\Standard Assets\Environment\Water (Basic)\DO_NOT_WORK_IN_VR.txt" />
     <None Include="Assets\Imports\Universal Sound FX\#Game Genre References\Fighting.txt" />
     <None Include="Assets\Imports\Standard Assets\Effects\TessellationShaders\Shaders\BumpedSpecularSmooth.shader" />
     <None Include="Assets\Imports\Standard Assets\Effects\Projectors\Guidelines.txt" />
     <None Include="Assets\Imports\Universal Sound FX\#Game Genre References\Shoot em Up.txt" />
-    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
+    <None Include="Assets\Imports\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\Imports\Standard Assets\Effects\ImageEffects\Readme.txt" />
-    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
+    <None Include="Assets\Imports\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
     <None Include="Assets\Imports\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Simple.shader" />
+    <None Include="Assets\Imports\Polygon Arsenal\Shaders\Standard\PolyRimLightSelective.shader" />
     <None Include="Assets\Imports\Universal Sound FX\#Game Genre References\8bit and Retro.txt" />
+    <None Include="Assets\Imports\Real Materials\Showcase\Sounds\Seisemic - license.txt" />
+    <None Include="Assets\Imports\Polygon Arsenal\Shaders\Standard\PolyRimLightSolid.shader" />
     <None Include="Assets\Imports\Standard Assets\Effects\ToonShading\Shaders\ToonBasicOutline.shader" />
     <None Include="Assets\Imports\Standard Assets\ParticleSystems\Shaders\PriorityParticleAlpha.shader" />
     <None Include="Assets\Imports\Standard Assets\Environment\Water\DO_NOT_WORK_IN_VR.txt" />
     <None Include="Assets\Imports\Standard Assets\ParticleSystems\ParticleSystemsGuidelines.txt" />
     <None Include="Assets\Imports\Universal Sound FX\#Game Genre References\Real Time Stategy (RTS) Sci-Fi.txt" />
-    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+    <None Include="Assets\Imports\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\Imports\Standard Assets\Environment\Water (Basic)\Shaders\FXWaterBasic.shader" />
     <None Include="Assets\Imports\Standard Assets\Fonts\OpenSans\License!.txt" />
-    <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
-    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Masking.shader" />
+    <None Include="Assets\Imports\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
+    <None Include="Assets\Imports\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\Imports\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
     <None Include="Assets\Imports\Universal Sound FX\version_history.txt" />
     <None Include="Assets\Imports\Standard Assets\ParticleSystems\Shaders\PriorityParticleAddSoft.shader" />
     <None Include="Assets\Imports\Standard Assets\Effects\ToonShading\Shaders\ToonLitOutline.shader" />
     <None Include="Assets\Imports\Standard Assets\Effects\ToonShading\Shaders\ToonLit.shader" />
-    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Mobile.shader" />
+    <None Include="Assets\Imports\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Mobile.shader" />
     <None Include="Assets\Imports\Standard Assets\Effects\Projectors\Shaders\ProjectorLight.shader" />
     <None Include="Assets\Imports\Universal Sound FX\#Game Genre References\Puzzle.txt" />
     <None Include="Assets\Imports\Standard Assets\Environment\Water\Water\Shaders\FXWaterPro.shader" />
-    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF Overlay.shader" />
+    <None Include="Assets\Imports\Polygon Arsenal\Shaders\Standard\PolyLitSurface.shader" />
+    <None Include="Assets\Imports\TextMesh Pro\Resources\Shaders\TMP_SDF Overlay.shader" />
+    <None Include="Assets\Imports\Real Materials\Showcase\Sounds\Waves background - license.txt" />
     <None Include="Assets\Imports\Universal Sound FX\#Game Genre References\Physics.txt" />
-    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Surface.cginc" />
-    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
+    <None Include="Assets\Imports\TextMesh Pro\Resources\Shaders\TMPro_Surface.cginc" />
+    <None Include="Assets\Imports\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\Imports\Universal Sound FX\#Game Genre References\First Person Shooter (FPS).txt" />
     <None Include="Assets\Imports\Standard Assets\Effects\Projectors\Shaders\ProjectorMultiply.shader" />
     <None Include="Assets\Imports\Standard Assets\Characters\ThirdPersonCharacter\ThirdPersonCharacterGuidelines.txt" />
     <None Include="Assets\Imports\Standard Assets\Cameras\CameraGuidelines.txt" />
-    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
-    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
+    <None Include="Assets\Imports\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
+    <None Include="Assets\Imports\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
     <None Include="Assets\Imports\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
     <None Include="Assets\Imports\Standard Assets\Environment\Water\Water4\Shaders\WaterInclude.cginc" />
-    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF.shader" />
+    <None Include="Assets\Imports\TextMesh Pro\Resources\Shaders\TMP_SDF.shader" />
     <None Include="Assets\Imports\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Advanced.shader" />
     <None Include="Assets\Imports\Standard Assets\Characters\RollerBall\RollerBallGuidelines.txt" />
     <None Include="Assets\Imports\Standard Assets\ParticleSystems\Shaders\PriorityParticleAdd.shader" />
-    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile.shader" />
+    <None Include="Assets\Imports\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile.shader" />
     <None Include="Assets\Imports\Standard Assets\Effects\TessellationShaders\Shaders\BumpedSpecularDisplacement.shader" />
-    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
-    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
+    <None Include="Assets\Imports\Polygon Arsenal\Polygon Arsenal - Readme.txt" />
+    <None Include="Assets\Imports\Polygon Arsenal\Shaders\Standard\PolyRimLightTransparent.shader" />
+    <None Include="Assets\Imports\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
+    <None Include="Assets\Imports\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
     <None Include="Assets\Imports\SampleScenes\Shaders\Skybox-Procedural.shader" />
     <Reference Include="Cinemachine">
       <HintPath>E:/Unity/projects/Parabot3D/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
@@ -248,6 +269,9 @@
     </Reference>
     <Reference Include="Unity.Analytics.DataPrivacy">
       <HintPath>E:/Unity/projects/Parabot3D/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.AssetBundleBrowser.Editor">
+      <HintPath>E:/Unity/projects/Parabot3D/Library/ScriptAssemblies/Unity.AssetBundleBrowser.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>E:/Unity/Editor/2018.3.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
