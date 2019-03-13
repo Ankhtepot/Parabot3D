@@ -45,7 +45,7 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     private bool IsTouchingGround() {
-        feetSphereIncludes = Physics.OverlapBox(player.feetPivot.transform.position, transform.localScale / feetOBoxReductor);
+        feetSphereIncludes = Physics.OverlapBox(player.feetPivot.transform.position, transform.localScale / feetOBoxReductor/2);
         return Array.Find(feetSphereIncludes, col => col.tag == system.GROUND);
     }
 

@@ -164,8 +164,8 @@
     <Compile Include="Assets\Player\PlayerMovement.cs" />
     <Compile Include="Assets\Prefabs\Combined tiles simple\1TGrid plus rollOver\GridController.cs" />
     <Compile Include="Assets\Prefabs\Combined tiles simple\1tileWide2sidesSlidingDoor\DoorController.cs" />
-    <Compile Include="Assets\Prefabs\Combined tiles simple\PressurePlate\PressurePlateController.cs" />
-    <Compile Include="Assets\Prefabs\Combined tiles simple\RollOver1T\RollOverController.cs" />
+    <Compile Include="Assets\Prefabs\Components\PressurePlate\PressurePlateController.cs" />
+    <Compile Include="Assets\Prefabs\Components\RollOver1T\RollOverController.cs" />
     <Compile Include="Assets\Prefabs\UI parts\ResponsiveElementUI.cs" />
     <Compile Include="Assets\Scripts\Constants\system.cs" />
     <Compile Include="Assets\Scripts\Constants\triggers.cs" />
@@ -177,6 +177,7 @@
     <Compile Include="Assets\Scripts\TileMenu.cs" />
     <Compile Include="Assets\Scripts\Trigger.cs" />
     <Compile Include="Assets\Scripts\TriggerArea.cs" />
+    <Compile Include="Assets\Scripts\WeightOfObject.cs" />
     <Compile Include="Assets\TileMenuButton.cs" />
     <Compile Include="Assets\UI\VirtualJoystick.cs" />
     <None Include="Assets\Imports\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
@@ -258,6 +259,9 @@
     <Reference Include="Unity.CollabProxy.Editor">
       <HintPath>E:/Unity/projects/Parabot3D/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.AssetBundleBrowser.Editor">
+      <HintPath>E:/Unity/projects/Parabot3D/Library/ScriptAssemblies/Unity.AssetBundleBrowser.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="com.unity.cinemachine.editor">
       <HintPath>E:/Unity/projects/Parabot3D/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
     </Reference>
@@ -269,9 +273,6 @@
     </Reference>
     <Reference Include="Unity.Analytics.DataPrivacy">
       <HintPath>E:/Unity/projects/Parabot3D/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.AssetBundleBrowser.Editor">
-      <HintPath>E:/Unity/projects/Parabot3D/Library/ScriptAssemblies/Unity.AssetBundleBrowser.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>E:/Unity/Editor/2018.3.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
