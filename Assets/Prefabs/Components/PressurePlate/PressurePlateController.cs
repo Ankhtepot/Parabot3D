@@ -21,7 +21,7 @@ public class PressurePlateController : MonoBehaviour
     public void OnWeighted(float delayedPress=0) {
         if (isPressed) return;
         //int weightedMass = massToPress > 0 ? measureWeight() : 0;
-        int weightedMass = massToPress > 0 ? MeasuredWeight : 0;
+        int weightedMass = massToPress > 0 ? MeasureWeight() : 0;
         if (weightedMass < massToPress) return;
 
         isPressed = true;
@@ -37,7 +37,7 @@ public class PressurePlateController : MonoBehaviour
     public void OnWeightRemoved() {
         if (!isPressed) return;
         //int weightedMass = massToPress > 0 ? measureWeight() : 0;
-        int weightedMass = massToPress > 0 ? MeasuredWeight : 0;
+        int weightedMass = massToPress > 0 ? MeasureWeight() : 0;
         if (weightedMass > massToPress) return;
 
         isPressed = false;
@@ -50,25 +50,10 @@ public class PressurePlateController : MonoBehaviour
         else Up();
     }
 
-    public int measureWeight() {
-        Collider[] hitObjects = Physics.OverlapBox(transform.position + overlapCubeOffset, overlapCubeScale/2);
+    public int MeasureWeight() {
+        Collider[] hitObjects = Physics.OverlapBox(transform.position + overlapCubeOffset, overlapCubeScale /2);
         print("hitObject length: " + hitObjects.Length);
         if (hitObjects.Length == 0) return 0;
-        int result = 0;
-        foreach(Collider hittedObject in hitObjects) {
-            if(hittedObject.GetComponentInParent<WeightOfObject>()) {
-                print("Hitted object "+hittedObject.name+" is WightOfObject and has weight: "+hittedObject.GetComponentInParent<WeightOfObject>().getWeight()+".");
-                result += (int)hittedObject.GetComponentInParent<WeightOfObject>().getWeight();
-            }
-        }
-        print("Measured weight: " + result);
-        return result;
-    }
-
-    public void MeasureWeight() {
-        Collider[] hitObjects = Physics.OverlapBox(transform.position + overlapCubeOffset, overlapCubeScale / 4);
-        print("hitObject length: " + hitObjects.Length);
-        if (hitObjects.Length == 0) MeasuredWeight = 0;
         MeasuredWeight = 0;
         foreach (Collider hittedObject in hitObjects) {
             if (hittedObject.GetComponentInParent<WeightOfObject>()) {
@@ -77,9 +62,24 @@ public class PressurePlateController : MonoBehaviour
             }
         }
         print("Measured weight: " + MeasuredWeight);
-        if (!isPressed && MeasuredWeight >= massToPress) OnWeighted(0);
-        else if (isPressed && MeasuredWeight < massToPress) OnWeightRemoved();
+        return MeasuredWeight;
     }
+
+    //public void MeasureWeight() {
+    //    Collider[] hitObjects = Physics.OverlapBox(transform.position + overlapCubeOffset, overlapCubeScale / 4);
+    //    //print("hitObject length: " + hitObjects.Length);
+    //    if (hitObjects.Length == 0) MeasuredWeight = 0;
+    //    MeasuredWeight = 0;
+    //    foreach (Collider hittedObject in hitObjects) {
+    //        if (hittedObject.GetComponentInParent<WeightOfObject>()) {
+    //            //print("Hitted object " + hittedObject.name + " is WightOfObject and has weight: " + hittedObject.GetComponentInParent<WeightOfObject>().getWeight() + ".");
+    //            MeasuredWeight += (int)hittedObject.GetComponentInParent<WeightOfObject>().getWeight();
+    //        }
+    //    }
+    //    //print("Measured weight: " + MeasuredWeight);
+    //    if (!isPressed && MeasuredWeight >= massToPress) OnWeighted(0);
+    //    else if (isPressed && MeasuredWeight < massToPress) OnWeightRemoved();
+    //}
 
     IEnumerator delayedAction(Action action, float delay) {
         yield return new WaitForSecondsRealtime(delay);
@@ -97,7 +97,7 @@ public class PressurePlateController : MonoBehaviour
     }
 
     private void OnDrawGizmos() {
-        //Gizmos.DrawCube(transform.position + overlapCubeOffset, overlapCubeScale);
+        //Gizmos.DrawCube(transform.position + overlapCubeOffset, overlapCubeScale/2);
     }
 
 }
