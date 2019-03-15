@@ -29,7 +29,7 @@ public class PressurePlateController : MonoBehaviour
         Action Down = () => {
             animator.SetBool(triggers.PRESSED, true);            
             };
-        print("Weigted mass: " + weightedMass);
+        //print("Weigted mass: " + weightedMass);
         if (delayedPress > 0) StartCoroutine(delayedAction(Down, delayedPress));
         else Down();
     }
@@ -52,16 +52,16 @@ public class PressurePlateController : MonoBehaviour
 
     public int MeasureWeight() {
         Collider[] hitObjects = Physics.OverlapBox(transform.position + overlapCubeOffset, overlapCubeScale /2);
-        print("hitObject length: " + hitObjects.Length);
+        //print("hitObject length: " + hitObjects.Length);
         if (hitObjects.Length == 0) return 0;
         MeasuredWeight = 0;
         foreach (Collider hittedObject in hitObjects) {
             if (hittedObject.GetComponentInParent<WeightOfObject>()) {
-                print("Hitted object " + hittedObject.name + " is WightOfObject and has weight: " + hittedObject.GetComponentInParent<WeightOfObject>().getWeight() + ".");
+                //print("Hitted object " + hittedObject.name + " is WightOfObject and has weight: " + hittedObject.GetComponentInParent<WeightOfObject>().getWeight() + ".");
                 MeasuredWeight += (int)hittedObject.GetComponentInParent<WeightOfObject>().getWeight();
             }
         }
-        print("Measured weight: " + MeasuredWeight);
+        //print("Measured weight: " + MeasuredWeight);
         return MeasuredWeight;
     }
 
