@@ -157,8 +157,7 @@
     <Compile Include="Assets\Imports\Standard Assets\Utility\TimedObjectDestructor.cs" />
     <Compile Include="Assets\Imports\Standard Assets\Utility\WaypointCircuit.cs" />
     <Compile Include="Assets\Imports\Standard Assets\Utility\WaypointProgressTracker.cs" />
-    <Compile Include="Assets\InfoText.cs" />
-    <Compile Include="Assets\InfoTextInvoker.cs" />
+    <Compile Include="Assets\JumpLandReceiver.cs" />
     <Compile Include="Assets\Player\PlayerBase.cs" />
     <Compile Include="Assets\Player\PlayerController.cs" />
     <Compile Include="Assets\Player\PlayerMovement.cs" />
@@ -166,6 +165,9 @@
     <Compile Include="Assets\Prefabs\Combined tiles simple\1tileWide2sidesSlidingDoor\DoorController.cs" />
     <Compile Include="Assets\Prefabs\Components\PressurePlate\PressurePlateController.cs" />
     <Compile Include="Assets\Prefabs\Components\RollOver1T\RollOverController.cs" />
+    <Compile Include="Assets\Prefabs\Components\TileMenu\InfoText.cs" />
+    <Compile Include="Assets\Prefabs\Components\TileMenu\InfoTextInvoker.cs" />
+    <Compile Include="Assets\Prefabs\Components\TileMenu\TileMenuButton.cs" />
     <Compile Include="Assets\Prefabs\UI parts\ResponsiveElementUI.cs" />
     <Compile Include="Assets\Scripts\Constants\system.cs" />
     <Compile Include="Assets\Scripts\Constants\triggers.cs" />
@@ -174,11 +176,12 @@
     <Compile Include="Assets\Scripts\input.cs" />
     <Compile Include="Assets\Scripts\IRollOverReceiver.cs" />
     <Compile Include="Assets\Scripts\ProximityTrigger.cs" />
+    <Compile Include="Assets\Scripts\TextProvider.cs" />
+    <Compile Include="Assets\Scripts\Texts\generalInfos.cs" />
     <Compile Include="Assets\Scripts\TileMenu.cs" />
     <Compile Include="Assets\Scripts\Trigger.cs" />
     <Compile Include="Assets\Scripts\TriggerArea.cs" />
     <Compile Include="Assets\Scripts\WeightOfObject.cs" />
-    <Compile Include="Assets\TileMenuButton.cs" />
     <Compile Include="Assets\UI\VirtualJoystick.cs" />
     <None Include="Assets\Imports\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
     <None Include="Assets\Imports\Standard Assets\Effects\ToonShading\Shaders\ToonBasic.shader" />

@@ -52,8 +52,8 @@ public class PlayerMovement : MonoBehaviour {
     private void TriggerJumpLandReceivers() {
         //String receivers = "Contact on jumpLand with: ";
         foreach(Collider col in feetSphereIncludes) {
-            //receivers += col.tag;
-            if(col.tag == system.JUMPLANDINTERACTIBLE) col.GetComponentInParent<GridController>().OnJumpLand();
+            //receivers += col.name + " || ";
+            if(col.GetComponentInParent<JumpLandReceiver>()) col.GetComponentInParent<JumpLandReceiver>().OnJumpLand();
         }
         //print(receivers);
     }
@@ -64,7 +64,7 @@ public class PlayerMovement : MonoBehaviour {
         }
         if (IsTouchingGround() && isJumping) {
             if (acceptJumpLand) {
-                TriggerJumpLandReceivers();
+                //        //TriggerJumpLandReceivers();
                 acceptJumpLand = false;
             }
             isJumping = false;
@@ -83,5 +83,16 @@ public class PlayerMovement : MonoBehaviour {
 
     private void OnDrawGizmos() {
         Gizmos.DrawCube(player.feetPivot.transform.position, transform.localScale / feetOBoxReductor);
+    }
+
+    private void OnCollisionEnter(Collision collision) {
+        GameObject otherObject = collision.gameObject;
+        if(acceptJumpLand) {
+            acceptJumpLand = false;
+            if (otherObject.GetComponentInParent<JumpLandReceiver>()) {
+                //print("Detected JumpLandReceiver on jumpLand.");
+                otherObject.GetComponentInParent<JumpLandReceiver>().OnJumpLand();
+            }
+        }
     }
 }

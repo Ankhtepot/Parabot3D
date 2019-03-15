@@ -14,7 +14,7 @@ public class TriggerArea : MonoBehaviour
 #pragma warning restore 649
 
     private void OnCollisionEnter(Collision collision) {
-        print("TriggerArea: collision fired with: " + collision.gameObject.name);
+      //  print("TriggerArea: collision fired with: " + collision.gameObject.name);
         OnRollOver_Collision.Invoke();
     }
 
@@ -23,7 +23,7 @@ public class TriggerArea : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other) {
-        print("TriggerArea: trigger fired with: " + other.name);
+       // print("TriggerArea: trigger fired with: " + other.name);
         OnRollOver_Trigger.Invoke();
     }
 

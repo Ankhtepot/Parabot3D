@@ -8,3 +8,8 @@
 [0226/160855:ERROR:main_dll_loader_win.cc(113)] Failed to load Chrome DLL from C:\Program Files (x86)\Shutness\Application\55.0.2883.75\chrome.dll: Uvedený modul nebyl nalezen. (0x7E)
 [0312/165856:ERROR:settings.cc(266)] Settings version is not 1
 [0312/165856:ERROR:main_dll_loader_win.cc(113)] Failed to load Chrome DLL from C:\Program Files (x86)\Shutness\Application\55.0.2883.75\chrome.dll: Uvedený modul nebyl nalezen. (0x7E)
+[0314/173134:ERROR:settings.cc(266)] Settings version is not 1
+[0314/173134:ERROR:main_dll_loader_win.cc(113)] Failed to load Chrome DLL from C:\Program Files (x86)\Shutness\Application\55.0.2883.75\chrome.dll: Uvedený modul nebyl nalezen. (0x7E)
+[0314/173141:ERROR:main_dll_loader_win.cc(113)] Failed to load Chrome DLL from C:\Program Files (x86)\Shutness\Application\55.0.2883.75\chrome.dll: Uvedený modul nebyl nalezen. (0x7E)
+[0314/173208:ERROR:main_dll_loader_win.cc(113)] Failed to load Chrome DLL from C:\Program Files (x86)\Shutness\Application\55.0.2883.75\chrome.dll: Uvedený modul nebyl nalezen. (0x7E)
+[0314/173221:ERROR:main_dll_loader_win.cc(113)] Failed to load Chrome DLL from C:\Program Files (x86)\Shutness\Application\55.0.2883.75\chrome.dll: Uvedený modul nebyl nalezen. (0x7E)
