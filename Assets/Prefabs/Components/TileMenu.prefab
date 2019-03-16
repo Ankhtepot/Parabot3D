@@ -168,7 +168,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   infoText: {fileID: 0}
-  message: This grid seems fragile enough to be destroyed by few, high jumps.
+  providedText: {fileID: 11400000, guid: 9f9420466167c234e8f15d272f54e04a, type: 2}
+  message: Not good
 --- !u!1 &7814664777882740460
 GameObject:
   m_ObjectHideFlags: 0
@@ -180,7 +181,7 @@ GameObject:
   - component: {fileID: 7814664777882740458}
   - component: {fileID: 7814664777882740461}
   m_Layer: 0
-  m_Name: InteractiveTileMenu
+  m_Name: TileMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -227,8 +228,8 @@ MonoBehaviour:
   lowerRightButtonAvaiable: 0
   lowerRight: {fileID: 0}
   lowerRightPivot: {fileID: 7224950167731043356}
-  middleButtonAvaiable: 1
-  middle: {fileID: 7814664777310315511}
+  middleButtonAvaiable: 0
+  middle: {fileID: 0}
   middlePivot: {fileID: 5769525684586051238}
   buttons: []
 --- !u!1 &7814664779237238056
@@ -368,12 +369,12 @@ PrefabInstance:
     - target: {fileID: 6950646408938501588, guid: 826ec7e844b363145a231531ed5ea0d3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.394
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6950646408938501588, guid: 826ec7e844b363145a231531ed5ea0d3,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6950646408938501588, guid: 826ec7e844b363145a231531ed5ea0d3,
         type: 3}
@@ -462,6 +463,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ProximityTrigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 2332910752889765484, guid: 5945bf100bc135c4aa2e60afba152a1c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2332910752889765483, guid: 5945bf100bc135c4aa2e60afba152a1c,
         type: 3}
@@ -611,7 +617,7 @@ PrefabInstance:
     - target: {fileID: 2195520756820521195, guid: 0b6e27478ad681941b03193192beb496,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.003
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2195520756820521195, guid: 0b6e27478ad681941b03193192beb496,
         type: 3}

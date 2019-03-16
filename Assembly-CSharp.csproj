@@ -60,6 +60,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\ButtonUI_Simple.cs" />
     <Compile Include="Assets\Imports\Polygon Arsenal\Demo\Scripts\PolygonBeamScript.cs" />
     <Compile Include="Assets\Imports\Polygon Arsenal\Demo\Scripts\PolygonButtonScript.cs" />
     <Compile Include="Assets\Imports\Polygon Arsenal\Demo\Scripts\PolygonFireProjectile.cs" />
@@ -157,7 +158,6 @@
     <Compile Include="Assets\Imports\Standard Assets\Utility\TimedObjectDestructor.cs" />
     <Compile Include="Assets\Imports\Standard Assets\Utility\WaypointCircuit.cs" />
     <Compile Include="Assets\Imports\Standard Assets\Utility\WaypointProgressTracker.cs" />
-    <Compile Include="Assets\JumpLandReceiver.cs" />
     <Compile Include="Assets\Player\PlayerBase.cs" />
     <Compile Include="Assets\Player\PlayerController.cs" />
     <Compile Include="Assets\Player\PlayerMovement.cs" />
@@ -168,16 +168,19 @@
     <Compile Include="Assets\Prefabs\Components\TileMenu\InfoText.cs" />
     <Compile Include="Assets\Prefabs\Components\TileMenu\InfoTextInvoker.cs" />
     <Compile Include="Assets\Prefabs\Components\TileMenu\TileMenuButton.cs" />
+    <Compile Include="Assets\Prefabs\UI parts\ButtonAnimated\ButtonUI.cs" />
     <Compile Include="Assets\Prefabs\UI parts\ResponsiveElementUI.cs" />
     <Compile Include="Assets\Scripts\Constants\system.cs" />
     <Compile Include="Assets\Scripts\Constants\triggers.cs" />
     <Compile Include="Assets\Scripts\HVScaler.cs" />
-    <Compile Include="Assets\Scripts\IJumpLandReceiver.cs" />
+    <Compile Include="Assets\Scripts\InfoTextProvider.cs" />
     <Compile Include="Assets\Scripts\input.cs" />
     <Compile Include="Assets\Scripts\IRollOverReceiver.cs" />
+    <Compile Include="Assets\Scripts\JumpLandReceiver.cs" />
+    <Compile Include="Assets\Scripts\LabelTextProvider.cs" />
     <Compile Include="Assets\Scripts\ProximityTrigger.cs" />
-    <Compile Include="Assets\Scripts\TextProvider.cs" />
     <Compile Include="Assets\Scripts\Texts\generalInfos.cs" />
+    <Compile Include="Assets\Scripts\Texts\labels.cs" />
     <Compile Include="Assets\Scripts\TileMenu.cs" />
     <Compile Include="Assets\Scripts\Trigger.cs" />
     <Compile Include="Assets\Scripts\TriggerArea.cs" />
@@ -191,6 +194,7 @@
     <None Include="Assets\Imports\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\Imports\Standard Assets\Prototyping\Shaders\WorldCoordDiffuse.shader" />
     <None Include="Assets\Imports\Standard Assets\Environment\Water (Basic)\DO_NOT_WORK_IN_VR.txt" />
+    <None Include="Assets\Imports\Sci-Fi game UI 9\MAIN\Readme.txt" />
     <None Include="Assets\Imports\Universal Sound FX\#Game Genre References\Fighting.txt" />
     <None Include="Assets\Imports\Standard Assets\Effects\TessellationShaders\Shaders\BumpedSpecularSmooth.shader" />
     <None Include="Assets\Imports\Standard Assets\Effects\Projectors\Guidelines.txt" />

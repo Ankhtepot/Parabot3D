@@ -6,7 +6,7 @@ public class InfoTextInvoker : MonoBehaviour
 {
 #pragma warning disable 649
     [SerializeField] InfoText infoText;
-    [SerializeField] TextProvider providedText;
+    [SerializeField] InfoTextProvider providedText;
 #pragma warning restore 649
     [TextArea] public string message;
 

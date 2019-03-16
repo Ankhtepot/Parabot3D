@@ -5,7 +5,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class GridController : MonoBehaviour, IJumpLandReceiver {
+[RequireComponent(typeof(JumpLandReceiver))]
+public class GridController : MonoBehaviour {
 #pragma warning disable 649
     [SerializeField] int landCount = 0;
     [SerializeField] GameObject[] Group1;
@@ -25,10 +26,6 @@ public class GridController : MonoBehaviour, IJumpLandReceiver {
         if(landCount < parts.Count) {
             disableParts(parts[landCount++]);
         }
-    }
-
-    public void OnRollOver() {
-        print("RollOver reporting");
     }
 
     private void disableParts(GameObject[] group) {
