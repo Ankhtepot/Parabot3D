@@ -37,6 +37,7 @@ public class OpeningDoorActionTab : MonoBehaviour {
     }
 
     public void setButtonsEnabled() {
+        //print("Setting buttons Enabled");
         openButton.Enable();
         closeButton.Enable();
     }

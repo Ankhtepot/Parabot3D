@@ -40,7 +40,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 247051469}
-  m_Mesh: {fileID: 4300002, guid: 5afb4fb5a96341a48979c8a3f55ff164, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 077794908771fef46bc176b6ece74aee, type: 2}
 --- !u!23 &245049869
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -527,61 +527,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: InteractiveTileMenu
       objectReference: {fileID: 0}
-    - target: {fileID: 7814664778160733269, guid: e16bdcd55918051479147875ad676a00,
-        type: 3}
-      propertyPath: OnEnterIntoProximity.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 7814664778896227282}
-    - target: {fileID: 7814664778160733269, guid: e16bdcd55918051479147875ad676a00,
-        type: 3}
-      propertyPath: OnExitOutOfDistance.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 7814664778896227282}
-    - target: {fileID: 7814664778160733264, guid: e16bdcd55918051479147875ad676a00,
-        type: 3}
-      propertyPath: targetObject
-      value: 
-      objectReference: {fileID: 7814664779178336620}
-    - target: {fileID: 7814664777882740461, guid: e16bdcd55918051479147875ad676a00,
-        type: 3}
-      propertyPath: upperLeft
-      value: 
-      objectReference: {fileID: 7814664778462150344}
-    - target: {fileID: 7814664777882740461, guid: e16bdcd55918051479147875ad676a00,
-        type: 3}
-      propertyPath: upperLeftPivot
-      value: 
-      objectReference: {fileID: 5980345813169761018}
-    - target: {fileID: 7814664777882740461, guid: e16bdcd55918051479147875ad676a00,
-        type: 3}
-      propertyPath: upperRight
-      value: 
-      objectReference: {fileID: 5199282097125802530}
-    - target: {fileID: 7814664777882740461, guid: e16bdcd55918051479147875ad676a00,
-        type: 3}
-      propertyPath: upperRightPivot
-      value: 
-      objectReference: {fileID: 8217334716967118628}
-    - target: {fileID: 7814664777882740461, guid: e16bdcd55918051479147875ad676a00,
-        type: 3}
-      propertyPath: lowerLeftPivot
-      value: 
-      objectReference: {fileID: 902846710887641699}
-    - target: {fileID: 7814664777882740461, guid: e16bdcd55918051479147875ad676a00,
-        type: 3}
-      propertyPath: lowerRightPivot
-      value: 
-      objectReference: {fileID: 7224950166718603555}
-    - target: {fileID: 7814664777882740461, guid: e16bdcd55918051479147875ad676a00,
-        type: 3}
-      propertyPath: middle
-      value: 
-      objectReference: {fileID: 7814664778462150344}
-    - target: {fileID: 7814664777882740461, guid: e16bdcd55918051479147875ad676a00,
-        type: 3}
-      propertyPath: middlePivot
-      value: 
-      objectReference: {fileID: 5769525685732699033}
     - target: {fileID: 7814664777882740458, guid: e16bdcd55918051479147875ad676a00,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -637,16 +582,70 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7814664777882740461, guid: e16bdcd55918051479147875ad676a00,
+        type: 3}
+      propertyPath: upperLeft
+      value: 
+      objectReference: {fileID: 7814664778462150344}
+    - target: {fileID: 7814664777882740461, guid: e16bdcd55918051479147875ad676a00,
+        type: 3}
+      propertyPath: upperLeftPivot
+      value: 
+      objectReference: {fileID: 5980345813169761018}
+    - target: {fileID: 7814664777882740461, guid: e16bdcd55918051479147875ad676a00,
+        type: 3}
+      propertyPath: upperRight
+      value: 
+      objectReference: {fileID: 5199282097125802530}
+    - target: {fileID: 7814664777882740461, guid: e16bdcd55918051479147875ad676a00,
+        type: 3}
+      propertyPath: upperRightPivot
+      value: 
+      objectReference: {fileID: 8217334716967118628}
+    - target: {fileID: 7814664777882740461, guid: e16bdcd55918051479147875ad676a00,
+        type: 3}
+      propertyPath: lowerLeftPivot
+      value: 
+      objectReference: {fileID: 902846710887641699}
+    - target: {fileID: 7814664777882740461, guid: e16bdcd55918051479147875ad676a00,
+        type: 3}
+      propertyPath: lowerRightPivot
+      value: 
+      objectReference: {fileID: 7224950166718603555}
+    - target: {fileID: 7814664777882740461, guid: e16bdcd55918051479147875ad676a00,
+        type: 3}
+      propertyPath: middle
+      value: 
+      objectReference: {fileID: 7814664778462150344}
+    - target: {fileID: 7814664777882740461, guid: e16bdcd55918051479147875ad676a00,
+        type: 3}
+      propertyPath: middlePivot
+      value: 
+      objectReference: {fileID: 5769525685732699033}
+    - target: {fileID: 7814664778160733264, guid: e16bdcd55918051479147875ad676a00,
+        type: 3}
+      propertyPath: targetObject
+      value: 
+      objectReference: {fileID: 7814664779178336620}
     - target: {fileID: 7814664777310315511, guid: e16bdcd55918051479147875ad676a00,
         type: 3}
       propertyPath: OnPress.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2015051796}
+    - target: {fileID: 7814664778160733269, guid: e16bdcd55918051479147875ad676a00,
+        type: 3}
+      propertyPath: OnEnterIntoProximity.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7814664778896227282}
+    - target: {fileID: 7814664778160733269, guid: e16bdcd55918051479147875ad676a00,
+        type: 3}
+      propertyPath: OnExitOutOfDistance.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7814664778896227282}
     - target: {fileID: 1018420523, guid: e16bdcd55918051479147875ad676a00, type: 3}
       propertyPath: providedText
       value: 
-      objectReference: {fileID: 11400000, guid: 37304c197d2a8d842a1855905e091d0b,
-        type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 1018420523, guid: e16bdcd55918051479147875ad676a00, type: 3}
       propertyPath: message
       value: Not good

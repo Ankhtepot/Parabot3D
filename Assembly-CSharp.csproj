@@ -60,7 +60,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\ActionsTab.cs" />
     <Compile Include="Assets\Imports\Polygon Arsenal\Demo\Scripts\PolygonBeamScript.cs" />
     <Compile Include="Assets\Imports\Polygon Arsenal\Demo\Scripts\PolygonButtonScript.cs" />
     <Compile Include="Assets\Imports\Polygon Arsenal\Demo\Scripts\PolygonFireProjectile.cs" />
@@ -163,7 +162,9 @@
     <Compile Include="Assets\Player\PlayerMovement.cs" />
     <Compile Include="Assets\Prefabs\Combined tiles simple\1TGrid plus rollOver\GridController.cs" />
     <Compile Include="Assets\Prefabs\Combined tiles simple\1tileWide2sidesSlidingDoor\DoorController.cs" />
+    <Compile Include="Assets\Prefabs\Components\DeadZone\DeadZone.cs" />
     <Compile Include="Assets\Prefabs\Components\PressurePlate\PressurePlateController.cs" />
+    <Compile Include="Assets\Prefabs\Components\RespawnPoint\RespawnPoint.cs" />
     <Compile Include="Assets\Prefabs\Components\RollOver1T\RollOverController.cs" />
     <Compile Include="Assets\Prefabs\Components\TileMenu\InfoText.cs" />
     <Compile Include="Assets\Prefabs\Components\TileMenu\InfoTextInvoker.cs" />
@@ -171,11 +172,14 @@
     <Compile Include="Assets\Prefabs\UI parts\ButtonAnimated\ButtonUI.cs" />
     <Compile Include="Assets\Prefabs\UI parts\ButtonSimple\ButtonUI_Simple.cs" />
     <Compile Include="Assets\Prefabs\UI parts\ResponsiveElementUI.cs" />
+    <Compile Include="Assets\Prefabs\UI parts\TerminalUI\ActionsTab.cs" />
     <Compile Include="Assets\Prefabs\UI parts\TerminalUI\OpeningDoorActionTab.cs" />
     <Compile Include="Assets\Prefabs\UI parts\TerminalUI\TerminalCanvas.cs" />
     <Compile Include="Assets\Scripts\Constants\enums.cs" />
     <Compile Include="Assets\Scripts\Constants\system.cs" />
     <Compile Include="Assets\Scripts\Constants\triggers.cs" />
+    <Compile Include="Assets\Scripts\GameController.cs" />
+    <Compile Include="Assets\Scripts\Globals.cs" />
     <Compile Include="Assets\Scripts\HVScaler.cs" />
     <Compile Include="Assets\Scripts\InfoTextProvider.cs" />
     <Compile Include="Assets\Scripts\input.cs" />

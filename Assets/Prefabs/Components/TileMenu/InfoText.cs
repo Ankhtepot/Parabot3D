@@ -17,6 +17,7 @@ public class InfoText : MonoBehaviour {
     }
 
     public void ActivateInfoText() {
+        StopCoroutine(WriteMessage());
         StartCoroutine(WriteMessage());
     }
 

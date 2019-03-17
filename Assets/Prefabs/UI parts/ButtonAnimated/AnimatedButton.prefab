@@ -221,9 +221,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Label: {fileID: 11400000, guid: b810dae255f96d8449208d14218afc1a, type: 2}
-  changeColorImages:
-  - {fileID: 5401400676712227218}
-  - {fileID: 8589763353874280222}
+  ColorChangeImages: []
   colorChangeSpeed: 0.1
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   hoverColor: {r: 1, g: 0.4310159, b: 0.043137252, a: 0.60784316}
