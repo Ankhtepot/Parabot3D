@@ -60,6 +60,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\ActionsTab.cs" />
     <Compile Include="Assets\Imports\Polygon Arsenal\Demo\Scripts\PolygonBeamScript.cs" />
     <Compile Include="Assets\Imports\Polygon Arsenal\Demo\Scripts\PolygonButtonScript.cs" />
     <Compile Include="Assets\Imports\Polygon Arsenal\Demo\Scripts\PolygonFireProjectile.cs" />

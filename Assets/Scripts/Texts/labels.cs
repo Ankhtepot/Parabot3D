@@ -13,7 +13,8 @@ namespace Assets.Scripts.Texts {
             messages, // 2
             test, // 3
             Open, // 4
-            Close // 5
+            Close, // 5  
+            L1_TerminalRoomTerminal_OpenEntryRoomDoor // 6
         }
 
         private static String[] texts = new String[] {
@@ -22,7 +23,8 @@ namespace Assets.Scripts.Texts {
                  "Messages", // 2
                  "Test", // 3
                  "Open", // 4
-                 "Close"
+                 "Close", // 5
+                 "Main room east door controller." // 6
                 };
 
         public static String getText(Texts text) {

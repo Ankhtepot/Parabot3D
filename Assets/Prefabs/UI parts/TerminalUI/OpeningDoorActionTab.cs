@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -8,6 +9,8 @@ public class OpeningDoorActionTab : MonoBehaviour {
     [SerializeField] Animator animator;
     [SerializeField] ButtonUI_Simple openButton;
     [SerializeField] ButtonUI_Simple closeButton;
+    [SerializeField] TextMeshProUGUI LabelTMP;
+    [SerializeField] LabelTextProvider labelTextProvider;
     [SerializeField] UnityEvent OnOpen;
     [SerializeField] UnityEvent OnClose;
 #pragma warning restore 649
@@ -15,6 +18,7 @@ public class OpeningDoorActionTab : MonoBehaviour {
     private void Start() {
         openButton.setNonActiveColorsForChangableImages();
         closeButton.SetActiveColorForChangableImages();
+        LabelTMP.text = labelTextProvider.GetText();
     }
 
     public void OpenDoors() {
