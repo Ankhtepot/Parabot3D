@@ -10,7 +10,7 @@ using UnityEngine.UI;
 public class ButtonUI : MonoBehaviour, IPointerUpHandler, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler {
 #pragma warning disable 649
     [SerializeField] LabelTextProvider Label;
-    [SerializeField] private Image[] changeColorImages;
+    [SerializeField] private Image[] ColorChangeImages;
     [SerializeField] float colorChangeSpeed = 0.1f;
     [SerializeField] Color normalColor;
     [SerializeField] Color hoverColor;
@@ -80,8 +80,8 @@ public class ButtonUI : MonoBehaviour, IPointerUpHandler, IPointerDownHandler, I
     }
 
     private void handleColors() {
-        if (changeColorImages[0].color != targetColor) {
-            foreach (var image in changeColorImages) {
+        if (ColorChangeImages[0].color != targetColor) {
+            foreach (var image in ColorChangeImages) {
                 image.color = Color.Lerp(image.color, targetColor, colorChangeSpeed); 
             }
             text.color = Color.Lerp(text.color, targetColor, colorChangeSpeed);

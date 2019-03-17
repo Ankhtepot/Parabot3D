@@ -406,13 +406,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Label: {fileID: 11400000, guid: a915d7f71b9198e478c0e7d3398f2f99, type: 2}
-  changeColorImage:
-  - {fileID: 3734307767235708590}
+  colorChangableImages: []
   colorChangeSpeed: 0.1
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   hoverColor: {r: 0.0047169924, g: 1, b: 0.9492238, a: 1}
   clickColor: {r: 0.9622642, g: 0.13163051, b: 0.8089277, a: 1}
   disabledColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  activeColor: {r: 0.17007834, g: 0.9245283, b: 0.23660254, a: 1}
+  nonActiveColor: {r: 1, g: 0.28773582, b: 0.28773582, a: 1}
   OnMouseDown:
     m_PersistentCalls:
       m_Calls: []
@@ -425,3 +426,4 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   text: {fileID: 4167896668077094568}
   targetColor: {r: 1, g: 1, b: 1, a: 1}
+  changableImagesTargetColor: {r: 1, g: 1, b: 1, a: 1}

@@ -60,7 +60,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\ButtonUI_Simple.cs" />
     <Compile Include="Assets\Imports\Polygon Arsenal\Demo\Scripts\PolygonBeamScript.cs" />
     <Compile Include="Assets\Imports\Polygon Arsenal\Demo\Scripts\PolygonButtonScript.cs" />
     <Compile Include="Assets\Imports\Polygon Arsenal\Demo\Scripts\PolygonFireProjectile.cs" />
@@ -169,7 +168,11 @@
     <Compile Include="Assets\Prefabs\Components\TileMenu\InfoTextInvoker.cs" />
     <Compile Include="Assets\Prefabs\Components\TileMenu\TileMenuButton.cs" />
     <Compile Include="Assets\Prefabs\UI parts\ButtonAnimated\ButtonUI.cs" />
+    <Compile Include="Assets\Prefabs\UI parts\ButtonSimple\ButtonUI_Simple.cs" />
     <Compile Include="Assets\Prefabs\UI parts\ResponsiveElementUI.cs" />
+    <Compile Include="Assets\Prefabs\UI parts\TerminalUI\OpeningDoorActionTab.cs" />
+    <Compile Include="Assets\Prefabs\UI parts\TerminalUI\TerminalCanvas.cs" />
+    <Compile Include="Assets\Scripts\Constants\enums.cs" />
     <Compile Include="Assets\Scripts\Constants\system.cs" />
     <Compile Include="Assets\Scripts\Constants\triggers.cs" />
     <Compile Include="Assets\Scripts\HVScaler.cs" />

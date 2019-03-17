@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.Scripts.Constants;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -6,16 +7,20 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using static Assets.Scripts.Constants.enums;
 
 public class ButtonUI_Simple : MonoBehaviour, IPointerUpHandler, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler {
 #pragma warning disable 649
     [SerializeField] LabelTextProvider Label;
+    [SerializeField] Image frameImage;
     [SerializeField] private Image[] colorChangableImages;
     [SerializeField] float colorChangeSpeed = 0.1f;
     [SerializeField] Color normalColor;
     [SerializeField] Color hoverColor;
     [SerializeField] Color clickColor;
     [SerializeField] Color disabledColor = Color.grey;
+    [SerializeField] Color activeColor;
+    [SerializeField] Color nonActiveColor;
     [SerializeField] UnityEvent OnMouseDown;
     [SerializeField] UnityEvent OnMouseUp;
     [SerializeField] TextMeshProUGUI text;
@@ -27,7 +32,7 @@ public class ButtonUI_Simple : MonoBehaviour, IPointerUpHandler, IPointerDownHan
     [SerializeField] Color changableImagesTargetColor = Color.white;
 
     private void Start() {
-        text.text = Label.GetText();
+        if(text) text.text = Label.GetText();
         if (!RuntimeEnabled) Disable();
         if (RuntimeEnabled) Enable();
     }
@@ -71,8 +76,12 @@ public class ButtonUI_Simple : MonoBehaviour, IPointerUpHandler, IPointerDownHan
         targetColor = disabledColor;
     }
 
-    public void SetColorOfImages(bool active) {
-        changableImagesTargetColor = (active == true ? Color.white : Color.red);
+    public void SetActiveColorForChangableImages() {
+        changableImagesTargetColor = activeColor;
+    }
+
+    public void setNonActiveColorsForChangableImages() {
+        changableImagesTargetColor = nonActiveColor;
     }
 
     private void handleMouseUp() {
@@ -81,13 +90,16 @@ public class ButtonUI_Simple : MonoBehaviour, IPointerUpHandler, IPointerDownHan
     }
 
     private void handleColors() {
-        if (colorChangableImages[0].color != changableImagesTargetColor) {
+        if (colorChangableImages.Length > 0 && colorChangableImages[0].color != changableImagesTargetColor) {
             foreach (Image image in colorChangableImages) {
                 image.color = Color.Lerp(image.color, changableImagesTargetColor, colorChangeSpeed);
             } 
         }
-        if (text.color != targetColor) {
+        if (text && text.color != targetColor) {
             text.color = Color.Lerp(text.color, targetColor, colorChangeSpeed);
+        }
+        if (frameImage && frameImage.color != targetColor) {
+            if (frameImage) frameImage.color = Color.Lerp(frameImage.color, targetColor, colorChangeSpeed); 
         }
     }
 
