@@ -6,6 +6,7 @@ public class RespawnPoint : MonoBehaviour {
     [SerializeField] GameController GC;
     [SerializeField] bool activated = false;
 #pragma warning disable 649
+    [SerializeField] GameObject centerPointOfRespawn;
     [SerializeField] MeshRenderer body;
 #pragma warning restore 649
 
@@ -15,6 +16,10 @@ public class RespawnPoint : MonoBehaviour {
 
     private void Start() {
         GC = FindObjectOfType<GameController>();
+    }
+
+    public Vector3 getPointOfRespawn() {
+        return centerPointOfRespawn.transform.position;
     }
 
     public void ActivateRespawnPoint() {

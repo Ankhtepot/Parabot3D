@@ -4,15 +4,32 @@ using UnityEngine;
 
 public class DeadZone : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+#pragma warning disable 649
+    [SerializeField] bool isZoneEffectActive = true;
+    [SerializeField] ParticleSystem zoneEffect;
+#pragma warning restore 649
+
+    private void Start() {
+        if (zoneEffect && isZoneEffectActive) SetZoneEffectActiveState(true);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void SetZoneEffectActiveState(bool state) {
+        if(zoneEffect) {
+            if(state) {
+                zoneEffect.Play();
+            } else {
+                zoneEffect.Stop();
+            }
+        }
+    }
+
+    private void OnTriggerEnter(Collider other) {
+
+        if (other.GetComponent<PlayerController>()) {
+            if (FindObjectOfType<GameController>()) {
+                if (!FindObjectOfType<GameController>().hasActiveRespawnPoint) GetComponent<InfoTextInvoker>().InvokeInfoText();
+            } else
+                other.GetComponent<PlayerController>().Death();
+        }
     }
 }

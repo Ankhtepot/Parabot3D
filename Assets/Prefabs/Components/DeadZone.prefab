@@ -57,3 +57,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b991019a4433cc54f833e386785e9f43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isZoneEffectActive: 1
+  zoneEffect: {fileID: 0}

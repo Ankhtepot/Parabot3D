@@ -11,4 +11,5 @@
     public const string OPEN = "Open";
     public const string PRESSED = "Pressed";
     public const string SHOW = "Show";
+    public const string ACTIVATE = "Activate";
 }

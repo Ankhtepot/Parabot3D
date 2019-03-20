@@ -60,6 +60,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Imports\EffectExamples\Misc Effects\Scripts\SpawnEffect.cs" />
     <Compile Include="Assets\Imports\Polygon Arsenal\Demo\Scripts\PolygonBeamScript.cs" />
     <Compile Include="Assets\Imports\Polygon Arsenal\Demo\Scripts\PolygonButtonScript.cs" />
     <Compile Include="Assets\Imports\Polygon Arsenal\Demo\Scripts\PolygonFireProjectile.cs" />
@@ -169,24 +170,28 @@
     <Compile Include="Assets\Prefabs\Components\TileMenu\InfoText.cs" />
     <Compile Include="Assets\Prefabs\Components\TileMenu\InfoTextInvoker.cs" />
     <Compile Include="Assets\Prefabs\Components\TileMenu\TileMenuButton.cs" />
+    <Compile Include="Assets\Prefabs\Components\TriggeredPlatform\TriggeredPlatform.cs" />
     <Compile Include="Assets\Prefabs\UI parts\ButtonAnimated\ButtonUI.cs" />
     <Compile Include="Assets\Prefabs\UI parts\ButtonSimple\ButtonUI_Simple.cs" />
     <Compile Include="Assets\Prefabs\UI parts\ResponsiveElementUI.cs" />
     <Compile Include="Assets\Prefabs\UI parts\TerminalUI\ActionsTab.cs" />
     <Compile Include="Assets\Prefabs\UI parts\TerminalUI\OpeningDoorActionTab.cs" />
     <Compile Include="Assets\Prefabs\UI parts\TerminalUI\TerminalCanvas.cs" />
+    <Compile Include="Assets\Scripts\Actions\ResetLevelAction.cs" />
     <Compile Include="Assets\Scripts\Constants\enums.cs" />
     <Compile Include="Assets\Scripts\Constants\system.cs" />
     <Compile Include="Assets\Scripts\Constants\triggers.cs" />
     <Compile Include="Assets\Scripts\GameController.cs" />
     <Compile Include="Assets\Scripts\Globals.cs" />
     <Compile Include="Assets\Scripts\HVScaler.cs" />
+    <Compile Include="Assets\Scripts\IActionReceiver.cs" />
     <Compile Include="Assets\Scripts\InfoTextProvider.cs" />
     <Compile Include="Assets\Scripts\input.cs" />
     <Compile Include="Assets\Scripts\IRollOverReceiver.cs" />
     <Compile Include="Assets\Scripts\JumpLandReceiver.cs" />
     <Compile Include="Assets\Scripts\LabelTextProvider.cs" />
     <Compile Include="Assets\Scripts\ProximityTrigger.cs" />
+    <Compile Include="Assets\Scripts\SceneLoader.cs" />
     <Compile Include="Assets\Scripts\Texts\generalInfos.cs" />
     <Compile Include="Assets\Scripts\Texts\labels.cs" />
     <Compile Include="Assets\Scripts\TileMenu.cs" />
@@ -209,6 +214,8 @@
     <None Include="Assets\Imports\Universal Sound FX\#Game Genre References\Shoot em Up.txt" />
     <None Include="Assets\Imports\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\Imports\Standard Assets\Effects\ImageEffects\Readme.txt" />
+    <None Include="Assets\Imports\EffectExamples\Misc Effects\Shaders\Dissolve.shader" />
+    <None Include="Assets\Imports\EffectExamples\Misc Effects\Shaders\FireFly.shader" />
     <None Include="Assets\Imports\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
     <None Include="Assets\Imports\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Simple.shader" />
     <None Include="Assets\Imports\Polygon Arsenal\Shaders\Standard\PolyRimLightSelective.shader" />
@@ -216,6 +223,7 @@
     <None Include="Assets\Imports\Real Materials\Showcase\Sounds\Seisemic - license.txt" />
     <None Include="Assets\Imports\Polygon Arsenal\Shaders\Standard\PolyRimLightSolid.shader" />
     <None Include="Assets\Imports\Standard Assets\Effects\ToonShading\Shaders\ToonBasicOutline.shader" />
+    <None Include="Assets\Imports\EffectExamples\Misc Effects\Prefabs\Readme_Dissolve_Respawn_.txt" />
     <None Include="Assets\Imports\Standard Assets\ParticleSystems\Shaders\PriorityParticleAlpha.shader" />
     <None Include="Assets\Imports\Standard Assets\Environment\Water\DO_NOT_WORK_IN_VR.txt" />
     <None Include="Assets\Imports\Standard Assets\ParticleSystems\ParticleSystemsGuidelines.txt" />
@@ -230,6 +238,7 @@
     <None Include="Assets\Imports\Standard Assets\ParticleSystems\Shaders\PriorityParticleAddSoft.shader" />
     <None Include="Assets\Imports\Standard Assets\Effects\ToonShading\Shaders\ToonLitOutline.shader" />
     <None Include="Assets\Imports\Standard Assets\Effects\ToonShading\Shaders\ToonLit.shader" />
+    <None Include="Assets\Imports\EffectExamples\Misc Effects\Shaders\Respawn.shader" />
     <None Include="Assets\Imports\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Mobile.shader" />
     <None Include="Assets\Imports\Standard Assets\Effects\Projectors\Shaders\ProjectorLight.shader" />
     <None Include="Assets\Imports\Universal Sound FX\#Game Genre References\Puzzle.txt" />
@@ -244,6 +253,7 @@
     <None Include="Assets\Imports\Standard Assets\Effects\Projectors\Shaders\ProjectorMultiply.shader" />
     <None Include="Assets\Imports\Standard Assets\Characters\ThirdPersonCharacter\ThirdPersonCharacterGuidelines.txt" />
     <None Include="Assets\Imports\Standard Assets\Cameras\CameraGuidelines.txt" />
+    <None Include="Assets\Imports\EffectExamples\Magic Effects\Shaders\Ice.shader" />
     <None Include="Assets\Imports\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
     <None Include="Assets\Imports\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
     <None Include="Assets\Imports\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />

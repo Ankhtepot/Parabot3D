@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour {
     [Range(0f, 5f)][SerializeField] float feetOBoxReductor;
     [SerializeField] GameObject[] staticObjects = { };
     [SerializeField] Vector3 feetPivotPositionAdjustment;
+    [SerializeField] GameObject feetPivot;
 #pragma warning restore 649
     [SerializeField] private PlayerController player;
     [SerializeField] Collider[] feetSphereIncludes;
@@ -22,7 +23,7 @@ public class PlayerMovement : MonoBehaviour {
 
     private void Start() {
         player = FindObjectOfType<PlayerController>();
-        RB = player.GetComponent<Rigidbody>();
+        RB = GetComponent<Rigidbody>();
         joystick = FindObjectOfType<VirtualJoystick>();
     }
 
@@ -45,7 +46,7 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     private bool IsTouchingGround() {
-        feetSphereIncludes = Physics.OverlapBox(player.feetPivot.transform.position, transform.localScale / feetOBoxReductor/2);
+        feetSphereIncludes = Physics.OverlapBox(feetPivot.transform.position, transform.localScale / feetOBoxReductor/2);
         return Array.Find(feetSphereIncludes, col => col.tag == system.GROUND);
     }
 
@@ -82,7 +83,7 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     private void OnDrawGizmos() {
-        Gizmos.DrawCube(player.feetPivot.transform.position, transform.localScale / feetOBoxReductor);
+        Gizmos.DrawCube(feetPivot.transform.position, transform.localScale / feetOBoxReductor);
     }
 
     private void OnCollisionEnter(Collision collision) {

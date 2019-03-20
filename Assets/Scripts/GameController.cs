@@ -5,10 +5,17 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
 #pragma warning disable 649    
-    [SerializeField] RespawnPoint respawnPoint;
+    [SerializeField] RespawnPoint activeRespawnPoint;
+    [Header("States")]
+    [SerializeField] public bool hasActiveRespawnPoint = false;
 #pragma warning restore 649
 
     public void SetRespawnPoint(RespawnPoint RP) {
-        respawnPoint = RP;
+        hasActiveRespawnPoint = true;
+        activeRespawnPoint = RP;
+    }
+
+    public Vector3 getActiveRespawnPointPosition() {
+        return activeRespawnPoint.getPointOfRespawn();
     }
 }
