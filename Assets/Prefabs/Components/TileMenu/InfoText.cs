@@ -30,7 +30,7 @@ public class InfoText : MonoBehaviour {
         message = text;
         animator.SetBool(triggers.SHOW, true);
         if (action != null) {
-            print("InfoText received action.");
+            //print("InfoText received action.");
             postDismissAction = action;
         }
     }

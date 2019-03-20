@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ResetLevelAction : MonoBehaviour
 {
@@ -10,14 +11,12 @@ public class ResetLevelAction : MonoBehaviour
 
     void Start()
     {
-        actionReceiver = GetComponent<IActionReceiver>();
-        if (actionReceiver != null) {
-            actionReceiver.SetAction(ResetLevel);
-        }
+        GetComponent<IActionReceiver>()?.SetAction(ResetLevel);
     }
 
     void ResetLevel() {
-        print("Level would reset now.");
+        //print("Level would reset now.");
+        FindObjectOfType<SceneLoader>().LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     

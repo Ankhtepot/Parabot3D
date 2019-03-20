@@ -20,16 +20,16 @@ public class InfoTextInvoker : MonoBehaviour, IActionReceiver
     }
 
     public void SetAction(Action action) {
-        String infotext = "InfoTextInvoker received action. postDismissAction is ";
+        //String infotext = "InfoTextInvoker received action. postDismissAction is ";
         postDismissAction = action;
-        infotext += (postDismissAction != null ? "set " : "null ") + "in InfoTextInvoker";
-        print(infotext);
+        //infotext += (postDismissAction != null ? "set " : "null ") + "in InfoTextInvoker";
+        //print(infotext);
         
     }
 
     public void InvokeInfoText() {
         if (providedText) message = providedText.getText() ;
         infoText.ShowUp(message, postDismissAction);
-        print("InvokeInfotext: postDismissAction is " + (postDismissAction == null ? "null" : "assigned and shuld be sent to infoText"));
+        //print("InvokeInfotext: postDismissAction is " + (postDismissAction == null ? "null" : "assigned and shuld be sent to infoText"));
     }
 }

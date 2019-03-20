@@ -25,11 +25,11 @@ public class DeadZone : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) {
 
-        if (other.GetComponent<PlayerController>()) {
-            if (FindObjectOfType<GameController>()) {
-                if (!FindObjectOfType<GameController>().hasActiveRespawnPoint) GetComponent<InfoTextInvoker>().InvokeInfoText();
-            } else
-                other.GetComponent<PlayerController>().Death();
-        }
+        if (!other.GetComponent<PlayerController>()) return;
+
+        if (!FindObjectOfType<GameController>().hasActiveRespawnPoint)
+            GetComponent<InfoTextInvoker>().InvokeInfoText();
+        else
+            other.GetComponent<PlayerController>().Death();
     }
 }
