@@ -47,9 +47,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53cf6ef64aedb77499104f3dd0638ed9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  centerPointOfRespawn: {fileID: 7775177875562123059}
   GC: {fileID: 0}
   activated: 0
+  centerPointOfRespawn: {fileID: 7775177875562123059}
   body: {fileID: 3063424423957931104}
 --- !u!1 &3063424423960132258
 GameObject:
@@ -65,7 +65,7 @@ GameObject:
   - component: {fileID: 6707372273474876080}
   m_Layer: 0
   m_Name: Body
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -292,6 +292,21 @@ PrefabInstance:
       propertyPath: middlePivot
       value: 
       objectReference: {fileID: 2848349507680675942}
+    - target: {fileID: 7814664778160733264, guid: e16bdcd55918051479147875ad676a00,
+        type: 3}
+      propertyPath: xZScale
+      value: 1.51
+      objectReference: {fileID: 0}
+    - target: {fileID: 7814664778160733264, guid: e16bdcd55918051479147875ad676a00,
+        type: 3}
+      propertyPath: targetObject
+      value: 
+      objectReference: {fileID: 2010122715768267411}
+    - target: {fileID: 7814664777310315511, guid: e16bdcd55918051479147875ad676a00,
+        type: 3}
+      propertyPath: OnPress.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8617118658679440363}
     - target: {fileID: 7814664778160733267, guid: e16bdcd55918051479147875ad676a00,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -307,16 +322,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.97
       objectReference: {fileID: 0}
-    - target: {fileID: 7814664778160733264, guid: e16bdcd55918051479147875ad676a00,
-        type: 3}
-      propertyPath: xZScale
-      value: 1.51
-      objectReference: {fileID: 0}
-    - target: {fileID: 7814664778160733264, guid: e16bdcd55918051479147875ad676a00,
-        type: 3}
-      propertyPath: targetObject
-      value: 
-      objectReference: {fileID: 2010122715768267411}
     - target: {fileID: 7814664778160733269, guid: e16bdcd55918051479147875ad676a00,
         type: 3}
       propertyPath: OnEnterIntoProximity.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -332,11 +337,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: dbfe0b83a07207f448e039555f473678,
         type: 2}
-    - target: {fileID: 7814664777310315511, guid: e16bdcd55918051479147875ad676a00,
-        type: 3}
-      propertyPath: OnPress.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 8617118658679440363}
     - target: {fileID: 4912360864570919581, guid: e16bdcd55918051479147875ad676a00,
         type: 3}
       propertyPath: m_IsActive
@@ -501,11 +501,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2332910752889765480, guid: 5945bf100bc135c4aa2e60afba152a1c,
-        type: 3}
-      propertyPath: targetObject
-      value: 
-      objectReference: {fileID: 6338269175972771085}
     - target: {fileID: 2332910752889765485, guid: 5945bf100bc135c4aa2e60afba152a1c,
         type: 3}
       propertyPath: OnEnterIntoProximity.m_PersistentCalls.m_Calls.Array.size
@@ -536,6 +531,11 @@ PrefabInstance:
       propertyPath: OnEnterIntoProximity.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 2332910752889765480, guid: 5945bf100bc135c4aa2e60afba152a1c,
+        type: 3}
+      propertyPath: targetObject
+      value: 
+      objectReference: {fileID: 6338269175972771085}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5945bf100bc135c4aa2e60afba152a1c, type: 3}
 --- !u!4 &6338269175972771085 stripped

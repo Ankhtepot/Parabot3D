@@ -167,12 +167,13 @@
     <Compile Include="Assets\Prefabs\Components\PressurePlate\PressurePlateController.cs" />
     <Compile Include="Assets\Prefabs\Components\RespawnPoint\RespawnPoint.cs" />
     <Compile Include="Assets\Prefabs\Components\RollOver1T\RollOverController.cs" />
-    <Compile Include="Assets\Prefabs\Components\TileMenu\InfoText.cs" />
-    <Compile Include="Assets\Prefabs\Components\TileMenu\InfoTextInvoker.cs" />
     <Compile Include="Assets\Prefabs\Components\TileMenu\TileMenuButton.cs" />
     <Compile Include="Assets\Prefabs\Components\TriggeredPlatform\TriggeredPlatform.cs" />
     <Compile Include="Assets\Prefabs\UI parts\ButtonAnimated\ButtonUI.cs" />
     <Compile Include="Assets\Prefabs\UI parts\ButtonSimple\ButtonUI_Simple.cs" />
+    <Compile Include="Assets\Prefabs\UI parts\InfoText\InfoText.cs" />
+    <Compile Include="Assets\Prefabs\UI parts\InfoText\InfoTextInvoker.cs" />
+    <Compile Include="Assets\Prefabs\UI parts\InfoText\InfoTextProvider.cs" />
     <Compile Include="Assets\Prefabs\UI parts\ResponsiveElementUI.cs" />
     <Compile Include="Assets\Prefabs\UI parts\TerminalUI\ActionsTab.cs" />
     <Compile Include="Assets\Prefabs\UI parts\TerminalUI\OpeningDoorActionTab.cs" />
@@ -185,7 +186,6 @@
     <Compile Include="Assets\Scripts\Globals.cs" />
     <Compile Include="Assets\Scripts\HVScaler.cs" />
     <Compile Include="Assets\Scripts\IActionReceiver.cs" />
-    <Compile Include="Assets\Scripts\InfoTextProvider.cs" />
     <Compile Include="Assets\Scripts\input.cs" />
     <Compile Include="Assets\Scripts\IRollOverReceiver.cs" />
     <Compile Include="Assets\Scripts\JumpLandReceiver.cs" />
