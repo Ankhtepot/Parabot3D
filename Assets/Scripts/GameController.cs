@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Game.Components.RespawnPoint;
+using UnityEngine;
 
 public class GameController : MonoBehaviour
 {

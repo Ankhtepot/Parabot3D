@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Prefabs.Components.TileMenu
+namespace Game.TileMenu
 {
     [RequireComponent(typeof(Animator))]
     public class TileMenuButton : MonoBehaviour

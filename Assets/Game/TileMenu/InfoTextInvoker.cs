@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Prefabs.Components.TileMenu
+namespace Game.TileMenu
 {
     public class InfoTextInvoker : MonoBehaviour, IActionReceiver
     {

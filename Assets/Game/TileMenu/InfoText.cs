@@ -4,7 +4,7 @@ using Constants;
 using TMPro;
 using UnityEngine;
 
-namespace Prefabs.Components.TileMenu
+namespace Game.TileMenu
 {
     public class InfoText : MonoBehaviour {
         [SerializeField] private Animator animator;
@@ -29,7 +29,7 @@ namespace Prefabs.Components.TileMenu
             message = text;
             animator.SetBool(triggers.SHOW, true);
             if (action != null) {
-                //print("InfoText received action.");
+                print("InfoText received action.");
                 postDismissAction = action;
             }
         }

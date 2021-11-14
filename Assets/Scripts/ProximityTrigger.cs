@@ -6,11 +6,9 @@ using UnityEngine.Events;
 
 public class ProximityTrigger : MonoBehaviour
 {
-#pragma warning disable 649
     [SerializeField] private UnityEvent OnEnterIntoProximity;
     [SerializeField] private UnityEvent OnExitOutOfDistance;
     [SerializeField] private UnityEvent OnStayInProximity;
-#pragma warning restore 649
     [SerializeField] private List<string> AcceptedTags = new List<string>();
 
     private void Start() {
@@ -31,7 +29,7 @@ public class ProximityTrigger : MonoBehaviour
 
     private void triggerEventOnAcceptedTag(string tagOfTheOther, Action action, string messageText) {
         if (AcceptedTags.Contains(tagOfTheOther)) {
-            //print("Accepted tag trigger fired on: " + messageText);
+            print("Accepted tag trigger fired on: " + messageText);
             action();
         }
     }
