@@ -1,28 +1,50 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using Attributes;
+using Services;
 using UnityEngine;
 
 namespace Game.TileMenu
 {
+    public enum ETileMenuButtonPosition
+    {
+        UpperLeft,
+        UpperRight,
+        LowerLeft,
+        LowerRight,
+        Middle
+    }
+
     public class TileMenu : MonoBehaviour
     {
-        [Header("Buttons to use")] [SerializeField]
+        [Header("Used buttons")] [ReadOnly] [SerializeField]
         private bool upperLeftButtonAvailable = true;
 
-        [SerializeField] private TileMenuButton upperLeft;
-        [SerializeField] private Transform upperLeftPivot;
-        [SerializeField] private bool upperRightButtonAvailable = true;
+        [ReadOnly] [SerializeField] private bool upperRightButtonAvailable;
+        [ReadOnly] [SerializeField] private bool lowerLeftButtonAvailable;
+        [ReadOnly] [SerializeField] private bool lowerRightButtonAvailable;
+        [ReadOnly] [SerializeField] private bool middleButtonAvailable;
+        [Header("Buttons")] [SerializeField] private TileMenuButton upperLeft;
         [SerializeField] private TileMenuButton upperRight;
-        [SerializeField] private Transform upperRightPivot;
-        [SerializeField] private bool lowerLeftButtonAvailable = true;
         [SerializeField] private TileMenuButton lowerLeft;
-        [SerializeField] private Transform lowerLeftPivot;
-        [SerializeField] private bool lowerRightButtonAvailable = true;
         [SerializeField] private TileMenuButton lowerRight;
-        [SerializeField] private Transform lowerRightPivot;
-        [SerializeField] private bool middleButtonAvailable = false;
         [SerializeField] private TileMenuButton middle;
-        [SerializeField] private Transform middlePivot;
         [SerializeField] private List<TileMenuButton> buttons = new List<TileMenuButton>();
+
+        [Header("Pivots")] [SerializeField] private Transform upperLeftPivot;
+        [SerializeField] private Transform upperRightPivot;
+        [SerializeField] private Transform lowerLeftPivot;
+        [SerializeField] private Transform lowerRightPivot;
+        [SerializeField] private Transform middlePivot;
+
+        [ReadOnly][SerializeField] private bool canBeInvoked = true;
+
+        private void Awake()
+        {
+            EventBroker.OnTileMenuInvoked += SetUp;
+            EventBroker.OnTileMenuDismissed += Dismiss;
+        }
 
         private void Start()
         {
@@ -43,11 +65,6 @@ namespace Game.TileMenu
             if (lowerLeft) lowerLeft.transform.position = lowerLeftPivot.position;
             if (lowerRight) lowerRight.transform.position = lowerRightPivot.position;
             if (middle) middle.transform.position = middlePivot.position;
-        }
-
-        public void SetUp(Vector3 position)
-        {
-        
         }
 
         public void ShowButtons()
@@ -136,6 +153,18 @@ namespace Game.TileMenu
                 upperRightButtonAvailable = false;
                 if (buttons.Contains(middle)) buttons.Remove(middle);
             }
+        }
+        
+        private void SetUp(Vector3 position, TileMenuInvoker setting)
+        {
+            if (!canBeInvoked) return;
+
+            // Debug.Log("Tile menu invoked.");
+        }
+        
+        private void Dismiss()
+        {
+            // Debug.Log("Tile menu dismissed.");
         }
     }
 }

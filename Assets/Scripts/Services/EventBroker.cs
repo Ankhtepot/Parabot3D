@@ -9,9 +9,12 @@ namespace Services
     public static class EventBroker
     {
         //Events
-        private static Action<Vector3, IEnumerable<TileMenuButtonSetting>> OnTileMenuInvoked;
+        public static Action<Vector3, TileMenuInvoker> OnTileMenuInvoked;
+        public static Action OnTileMenuDismissed;
         
         //Triggers
-        public static void TriggerOnTileMenuInvoked(Vector3 position, IEnumerable<TileMenuButtonSetting> settings) => OnTileMenuInvoked?.Invoke(position, settings);
+        public static void TriggerOnTileMenuInvoked(Vector3 position, TileMenuInvoker settings) => OnTileMenuInvoked?.Invoke(position, settings);
+
+        public static void TriggerOnTileMenuDismissed() => OnTileMenuDismissed?.Invoke();
     }
 }
