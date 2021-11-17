@@ -1,5 +1,6 @@
 ﻿using System;
+using UnityEngine.Events;
 
 internal interface IActionReceiver {
-    void SetAction(Action action);
+    void SetAction(UnityAction action);
 }

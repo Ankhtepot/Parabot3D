@@ -1,18 +1,20 @@
 ﻿using System;
 using System.Collections;
+using Attributes;
 using Constants;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Game.TileMenu
 {
     public class InfoText : MonoBehaviour {
         [SerializeField] private Animator animator;
         [SerializeField] private TextMeshProUGUI textArea;
-        [SerializeField] private string message;
+        [ReadOnly][SerializeField] private string message;
 
         //Caches
-        private Action postDismissAction = null;
+        private UnityAction postDismissAction = null;
 
         private void Start() {
             animator = GetComponent<Animator>();
@@ -24,7 +26,7 @@ namespace Game.TileMenu
             StartCoroutine(WriteMessage());
         }
 
-        public void ShowUp(string text, Action action = null) {
+        public void ShowUp(string text, UnityAction action = null) {
             textArea.text = "";
             message = text;
             animator.SetBool(triggers.SHOW, true);

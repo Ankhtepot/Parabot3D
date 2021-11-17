@@ -1,6 +1,6 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Attributes;
 using Services;
 using UnityEngine;
@@ -18,53 +18,35 @@ namespace Game.TileMenu
 
     public class TileMenu : MonoBehaviour
     {
-        [Header("Used buttons")] [ReadOnly] [SerializeField]
-        private bool upperLeftButtonAvailable = true;
-
-        [ReadOnly] [SerializeField] private bool upperRightButtonAvailable;
-        [ReadOnly] [SerializeField] private bool lowerLeftButtonAvailable;
-        [ReadOnly] [SerializeField] private bool lowerRightButtonAvailable;
-        [ReadOnly] [SerializeField] private bool middleButtonAvailable;
-        [Header("Buttons")] [SerializeField] private TileMenuButton upperLeft;
-        [SerializeField] private TileMenuButton upperRight;
-        [SerializeField] private TileMenuButton lowerLeft;
-        [SerializeField] private TileMenuButton lowerRight;
-        [SerializeField] private TileMenuButton middle;
-        [SerializeField] private List<TileMenuButton> buttons = new List<TileMenuButton>();
-
-        [Header("Pivots")] [SerializeField] private Transform upperLeftPivot;
+        [Header("Buttons")] 
+        [SerializeField] private InfoTileMenuButton infoButton;
+        [SerializeField] private GameObject actionButton;
+        [Header("Pivots")] 
+        [SerializeField] private Transform upperLeftPivot;
         [SerializeField] private Transform upperRightPivot;
         [SerializeField] private Transform lowerLeftPivot;
         [SerializeField] private Transform lowerRightPivot;
         [SerializeField] private Transform middlePivot;
 
+        [Header("Other assignables")] 
+        [SerializeField] private GameObject root;
+        [SerializeField] private Transform buttonStore;
+
         [ReadOnly][SerializeField] private bool canBeInvoked = true;
+
+        private readonly List<TileMenuButton> buttons = new List<TileMenuButton>();
+        private readonly Dictionary<ETileMenuButtonPosition, Transform> buttonPivots = new Dictionary<ETileMenuButtonPosition, Transform>();
 
         private void Awake()
         {
             EventBroker.OnTileMenuInvoked += SetUp;
             EventBroker.OnTileMenuDismissed += Dismiss;
-        }
-
-        private void Start()
-        {
-            if (middle)
-            {
-                if (middleButtonAvailable) buttons.Add(middle);
-            }
-            else
-            {
-                if (upperLeft && upperLeftButtonAvailable) buttons.Add(upperLeft);
-                if (upperRight && upperRightButtonAvailable) buttons.Add(upperRight);
-                if (lowerLeft && lowerLeftButtonAvailable) buttons.Add(lowerLeft);
-                if (lowerRight && lowerRightButtonAvailable) buttons.Add(lowerRight);
-            }
-
-            if (upperLeft) upperLeft.transform.position = upperLeftPivot.position;
-            if (upperRight) upperRight.transform.position = upperRightPivot.position;
-            if (lowerLeft) lowerLeft.transform.position = lowerLeftPivot.position;
-            if (lowerRight) lowerRight.transform.position = lowerRightPivot.position;
-            if (middle) middle.transform.position = middlePivot.position;
+            
+            buttonPivots.Add(ETileMenuButtonPosition.UpperLeft, upperLeftPivot);
+            buttonPivots.Add(ETileMenuButtonPosition.UpperRight, upperRightPivot);
+            buttonPivots.Add(ETileMenuButtonPosition.LowerLeft, lowerLeftPivot);
+            buttonPivots.Add(ETileMenuButtonPosition.LowerRight, lowerRightPivot);
+            buttonPivots.Add(ETileMenuButtonPosition.Middle, middlePivot);
         }
 
         public void ShowButtons()
@@ -85,86 +67,48 @@ namespace Game.TileMenu
             }
         }
 
-        public void ChangeLowerLeftButtonAccessibility(bool isAccessible)
-        {
-            if (isAccessible)
-            {
-                lowerLeftButtonAvailable = true;
-                if (lowerLeft) buttons.Add(lowerLeft);
-            }
-            else
-            {
-                lowerLeftButtonAvailable = false;
-                if (buttons.Contains(lowerLeft)) buttons.Remove(lowerLeft);
-            }
-        }
-
-        public void ChangeLowerRightButtonAccessibility(bool isAccessible)
-        {
-            if (isAccessible)
-            {
-                lowerRightButtonAvailable = true;
-                if (lowerRight) buttons.Add(lowerRight);
-            }
-            else
-            {
-                lowerLeftButtonAvailable = false;
-                if (buttons.Contains(lowerRight)) buttons.Remove(lowerLeft);
-            }
-        }
-
-        public void ChangeUpperLeftButtonAccessibility(bool isAccessible)
-        {
-            if (isAccessible)
-            {
-                upperRightButtonAvailable = true;
-                if (upperLeft) buttons.Add(upperLeft);
-            }
-            else
-            {
-                upperRightButtonAvailable = false;
-                if (buttons.Contains(upperLeft)) buttons.Remove(upperLeft);
-            }
-        }
-
-        public void ChangeUpperRightButtonAccessibility(bool isAccessible)
-        {
-            if (isAccessible)
-            {
-                upperRightButtonAvailable = true;
-                if (upperRight) buttons.Add(upperRight);
-            }
-            else
-            {
-                upperRightButtonAvailable = false;
-                if (buttons.Contains(upperRight)) buttons.Remove(upperRight);
-            }
-        }
-
-        public void ChangeMiddleButtonAccessibility(bool isAccessible)
-        {
-            if (isAccessible)
-            {
-                middleButtonAvailable = true;
-                if (middle) buttons.Add(middle);
-            }
-            else
-            {
-                upperRightButtonAvailable = false;
-                if (buttons.Contains(middle)) buttons.Remove(middle);
-            }
-        }
-        
         private void SetUp(Vector3 position, TileMenuInvoker setting)
         {
             if (!canBeInvoked) return;
 
-            // Debug.Log("Tile menu invoked.");
+            root.SetActive(true);
+            transform.position = position;
+
+            if (setting.UseInfoButton)
+            {
+                infoButton.transform.parent = buttonPivots[setting.InfoButtonPosition];
+                infoButton.Set(setting.InfoTextProvider, setting.PostDismissAction);
+                buttons.Add(infoButton);
+            }
+
+            foreach (var button in buttons)
+            {
+                button.ShowUp();
+            }
         }
         
         private void Dismiss()
         {
-            // Debug.Log("Tile menu dismissed.");
+            foreach (var button in buttons)
+            {
+                button.Hide();
+            }
+            
+            buttons.Clear();
+
+            StartCoroutine(RunAfterDismissCleaning());
+        }
+
+        private IEnumerator RunAfterDismissCleaning()
+        {
+            yield return new WaitForSeconds(0.5f);
+            
+            foreach (var child in buttonPivots.Values.SelectMany(pivot => pivot.Cast<Transform>()))
+            {
+                child.parent = buttonStore;
+            }
+            
+            root.SetActive(false);
         }
     }
 }
