@@ -1,15 +1,19 @@
-﻿using UnityEngine;
+﻿using System;
+using Attributes;
+using UnityEngine;
 
 namespace Player
 {
     public class PlayerController : MonoBehaviour
     {
-        [SerializeField] GameController GC;
+        [ReadOnly][SerializeField] GameController GC;
 
-        private void Start() {
-            GC = FindObjectOfType<GameController>();
+        private void OnEnable()
+        {
+            GC = GameController._Instance;
+            GameController.Subscribe(this);
         }
-        
+
         public void Death() {
             OnDying();
         }
@@ -17,6 +21,11 @@ namespace Player
         private void OnDying() {
             // print("OnDying reporting. RespawnPosition = " + (GC.hasActiveRespawnPoint == true ? GC.getActiveRespawnPointPosition().ToString() : "no respawnpoint active"));
             if (GC.hasActiveRespawnPoint) transform.position = GC.getActiveRespawnPointPosition();
+        }
+
+        private void OnDisable()
+        {
+            GameController.Unsubscribe<PlayerController>();
         }
     }
 }

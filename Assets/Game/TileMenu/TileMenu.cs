@@ -77,7 +77,7 @@ namespace Game.TileMenu
             if (setting.UseInfoButton)
             {
                 infoButton.transform.parent = buttonPivots[setting.InfoButtonPosition];
-                infoButton.Set(setting.InfoTextProvider, setting.PostDismissAction);
+                infoButton.Set(setting.InfoText, null);
                 buttons.Add(infoButton);
             }
 
@@ -93,20 +93,20 @@ namespace Game.TileMenu
             {
                 button.Hide();
             }
-            
-            buttons.Clear();
 
             StartCoroutine(RunAfterDismissCleaning());
         }
 
         private IEnumerator RunAfterDismissCleaning()
         {
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(1f);
             
-            foreach (var child in buttonPivots.Values.SelectMany(pivot => pivot.Cast<Transform>()))
+            foreach (var child in buttons.Select(button => button.transform))
             {
                 child.parent = buttonStore;
             }
+            
+            buttons.Clear();
             
             root.SetActive(false);
         }

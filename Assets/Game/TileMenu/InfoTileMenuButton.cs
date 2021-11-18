@@ -1,4 +1,6 @@
 using System;
+using Attributes;
+using Services;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -6,11 +8,17 @@ namespace Game.TileMenu
 {
     public class InfoTileMenuButton : TileMenuButton
     {
-        [SerializeField] private InfoTextInvoker textInvoker;
-
-        public void Set(InfoTextProvider textProvider, UnityAction postDismissAction)
+        [ReadOnly, SerializeField] private InfoText infoText;
+        private UnityAction postDismissAction;
+        protected override void OnMouseDown()
         {
-            textInvoker.Set(textProvider, postDismissAction);
+            EventBroker.TriggerOnInfoTextInvoked(infoText.Text, postDismissAction);
+        }
+
+        public void Set(InfoText settingInfoText, UnityAction settingPostDismissAction)
+        {
+            infoText = settingInfoText;
+            postDismissAction = settingPostDismissAction;
         }
     }
 }

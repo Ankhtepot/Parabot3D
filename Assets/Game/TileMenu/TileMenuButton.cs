@@ -7,10 +7,10 @@ namespace Game.TileMenu
     [RequireComponent(typeof(Animator))]
     public class TileMenuButton : MonoBehaviour
     {
-        [SerializeField] private UnityEvent OnPress;
+        [SerializeField] protected UnityEvent OnPress;
         [SerializeField] private Animator animator;
 
-        private void OnMouseDown() {
+        protected virtual void OnMouseDown() {
             //print("OnPress button invoked");
             OnPress.Invoke();
         }

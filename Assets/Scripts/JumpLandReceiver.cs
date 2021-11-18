@@ -8,7 +8,7 @@ public class JumpLandReceiver : MonoBehaviour
 #pragma warning restore 649
 
     public void OnJumpLand() {
-        //print("JumpLandReceiver: OnJumpLand Invoking");
-        OnJumpLandReceived.Invoke();
+        // print("JumpLandReceiver: OnJumpLand Invoking");
+        OnJumpLandReceived?.Invoke();
     }
 }

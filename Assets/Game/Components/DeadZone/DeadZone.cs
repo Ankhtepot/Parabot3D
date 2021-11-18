@@ -1,37 +1,43 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Game.TileMenu;
+﻿using Constants;
+using Game.UI_parts.InfoText;
 using Player;
 using UnityEngine;
 
-public class DeadZone : MonoBehaviour
+namespace Game.Components.DeadZone
 {
-#pragma warning disable 649
-    [SerializeField] bool isZoneEffectActive = true;
-    [SerializeField] ParticleSystem zoneEffect;
-#pragma warning restore 649
+    public class DeadZone : MonoBehaviour
+    {
+        [SerializeField] bool isZoneEffectActive = true;
+        [SerializeField] ParticleSystem zoneEffect;
 
-    private void Start() {
-        if (zoneEffect && isZoneEffectActive) SetZoneEffectActiveState(true);
-    }
+        private void Start()
+        {
+            if (zoneEffect && isZoneEffectActive) SetZoneEffectActiveState(true);
+        }
 
-    public void SetZoneEffectActiveState(bool state) {
-        if(zoneEffect) {
-            if(state) {
-                zoneEffect.Play();
-            } else {
-                zoneEffect.Stop();
+        private void SetZoneEffectActiveState(bool state)
+        {
+            if (zoneEffect)
+            {
+                if (state)
+                {
+                    zoneEffect.Play();
+                }
+                else
+                {
+                    zoneEffect.Stop();
+                }
             }
         }
-    }
 
-    private void OnTriggerEnter(Collider other) {
+        private void OnTriggerEnter(Collider other)
+        {
+            if (!other.CompareTag(tags.Player)) return;
 
-        if (!other.GetComponent<PlayerController>()) return;
-
-        if (!FindObjectOfType<GameController>().hasActiveRespawnPoint)
-            GetComponent<InfoTextInvoker>().InvokeInfoText();
-        else
-            other.GetComponent<PlayerController>().Death();
+            if (GameController._Instance.hasActiveRespawnPoint)
+                GetComponent<InfoTextInvoker>().InvokeInfoText();
+            else
+                GameController.GetSubscriber<PlayerController>().Death();
+        }
     }
 }

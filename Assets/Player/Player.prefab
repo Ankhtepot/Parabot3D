@@ -39,7 +39,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2946128178753790833}
-  - component: {fileID: 914634379377155923}
   m_Layer: 9
   m_Name: Player
   m_TagString: Untagged
@@ -63,19 +62,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &914634379377155923
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2946128178753790838}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 169ae5e35fa034c47aa841c634bcd084, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weight: 50
 --- !u!1 &2946128179700355382
 GameObject:
   m_ObjectHideFlags: 0
@@ -141,6 +127,7 @@ GameObject:
   - component: {fileID: 2946128179805544604}
   - component: {fileID: 2946128179805544602}
   - component: {fileID: 379653366}
+  - component: {fileID: 8853610704145108115}
   m_Layer: 9
   m_Name: Engine
   m_TagString: Player
@@ -253,13 +240,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36af091d8fd3c22498964ce5c5c4253e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0
-  jumpPower: 60
+  moveSpeed: 150
+  jumpPower: 50
   feetPivot: {fileID: 2946128179805544600}
   feetSphereIncludes: []
-  isJumping: 0
-  player: {fileID: 2946128179805544603, guid: 712925f1cae597e44ab351f6ec087b2b, type: 3}
   RB: {fileID: 2946128179805544604}
+  ownCollider: {fileID: 2946128179805544607}
+  isJumping: 0
   acceptJumpLand: 0
 --- !u!114 &379653366
 MonoBehaviour:
@@ -274,3 +261,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GC: {fileID: 0}
+--- !u!114 &8853610704145108115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2946128179805544605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 169ae5e35fa034c47aa841c634bcd084, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weight: 50

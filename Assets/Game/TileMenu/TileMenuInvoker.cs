@@ -10,13 +10,9 @@ namespace Game.TileMenu
         [Header("TileMenuSettings")]
         [SerializeField] private bool useInfoButton;
         [DrawIf("useInfoButton", true)]
-        [Header("Info Button Settings:")]
-        [DrawIf("useInfoButton", true)]
         [SerializeField] private ETileMenuButtonPosition infoButtonPosition = ETileMenuButtonPosition.Middle;
         [DrawIf("useInfoButton", true)] 
-        [SerializeField] private InfoTextProvider infoTextProvider;
-        [DrawIf("useInfoButton", true)] 
-        private UnityAction postDismissAction;
+        [SerializeField] private InfoText infoText;
         
         [SerializeField] private bool useActionButton;
         [DrawIf("useActionButton", true)]
@@ -26,8 +22,7 @@ namespace Game.TileMenu
         public ETileMenuButtonPosition InfoButtonPosition => infoButtonPosition;
         public bool UseActionButton => useActionButton;
         public ETileMenuButtonPosition ActionButtonPosition => actionButtonPosition;
-        public InfoTextProvider InfoTextProvider => infoTextProvider;
-        public UnityAction PostDismissAction => postDismissAction;
+        public global::InfoText InfoText => infoText;
 
         public void InvokeTileMenu()
         {
