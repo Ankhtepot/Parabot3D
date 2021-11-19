@@ -1,24 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
-using Constants;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class ProximityTrigger : MonoBehaviour
 {
-    [SerializeField] private UnityEvent OnEnterIntoProximity;
-    [SerializeField] private UnityEvent OnExitOutOfDistance;
-    [SerializeField] private UnityEvent OnStayInProximity;
+    public UnityEvent OnEnterIntoProximity;
+    public UnityEvent OnExitOutOfDistance;
+    public UnityEvent OnStayInProximity;
+    
 #if UNITY_EDITOR
     [SerializeField] private bool showDebugMessages;
 #endif
     [SerializeField] private List<string> AcceptedTags = new List<string>();
 
-    private void Start() {
-    }
-
     private void OnTriggerEnter(Collider other) {
-        triggerEventOnAcceptedTag(other.tag, () => OnEnterIntoProximity.Invoke(), "Enter");
+        triggerEventOnAcceptedTag(other.tag, () => OnEnterIntoProximity?.Invoke(), "Enter");
     }
 
     private void OnTriggerExit(Collider other) {

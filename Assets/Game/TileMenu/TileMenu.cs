@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Attributes;
+using Extensions;
 using Services;
 using UnityEngine;
 
@@ -76,7 +77,9 @@ namespace Game.TileMenu
 
             if (setting.UseInfoButton)
             {
-                infoButton.transform.parent = buttonPivots[setting.InfoButtonPosition];
+                var transform1 = infoButton.transform;
+                transform1.parent = buttonPivots[setting.InfoButtonPosition];
+                transform1.localPosition = Vector3Extensions.Zero;
                 infoButton.Set(setting.InfoText, null);
                 buttons.Add(infoButton);
             }

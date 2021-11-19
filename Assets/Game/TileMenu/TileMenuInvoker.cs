@@ -1,12 +1,12 @@
 using Attributes;
 using Services;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace Game.TileMenu
 {
     public class TileMenuInvoker : MonoBehaviour
     {
+        [SerializeField] private ProximityTrigger proximityTrigger;
         [Header("TileMenuSettings")]
         [SerializeField] private bool useInfoButton;
         [DrawIf("useInfoButton", true)]
@@ -22,7 +22,12 @@ namespace Game.TileMenu
         public ETileMenuButtonPosition InfoButtonPosition => infoButtonPosition;
         public bool UseActionButton => useActionButton;
         public ETileMenuButtonPosition ActionButtonPosition => actionButtonPosition;
-        public global::InfoText InfoText => infoText;
+        public InfoText InfoText => infoText;
+
+        private void OnEnable()
+        {
+            proximityTrigger.OnEnterIntoProximity.AddListener(InvokeTileMenu);
+        }
 
         public void InvokeTileMenu()
         {
@@ -36,5 +41,9 @@ namespace Game.TileMenu
         
         //TODO: Test whn middle button is selected, that only that one button is to be used
         //TODO: If no middle button is selected, check uniqueness of positions for buttons
+        private void OnDisable()
+        {
+            proximityTrigger.OnExitOutOfDistance.AddListener(DismissTileMenu);
+        }
     }
 }
