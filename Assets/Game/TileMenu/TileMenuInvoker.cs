@@ -9,20 +9,24 @@ namespace Game.TileMenu
         [SerializeField] private ProximityTrigger proximityTrigger;
         [Header("TileMenuSettings")]
         [SerializeField] private bool useInfoButton;
-        [DrawIf("useInfoButton", true)]
+        [ShowWhen("useInfoButton", true)]
         [SerializeField] private ETileMenuButtonPosition infoButtonPosition = ETileMenuButtonPosition.Middle;
-        [DrawIf("useInfoButton", true)] 
+        [ShowWhen("useInfoButton", true)] 
         [SerializeField] private InfoText infoText;
         
         [SerializeField] private bool useActionButton;
-        [DrawIf("useActionButton", true)]
+        [ShowWhen("useActionButton", true)]
         [SerializeField] private ETileMenuButtonPosition actionButtonPosition = ETileMenuButtonPosition.Middle;
+        [ShowWhen("useActionButton", true)]
+        [SerializeField] private TileMenuActionSetup actionButtonSetup;
+
 
         public bool UseInfoButton => useInfoButton;
         public ETileMenuButtonPosition InfoButtonPosition => infoButtonPosition;
         public bool UseActionButton => useActionButton;
         public ETileMenuButtonPosition ActionButtonPosition => actionButtonPosition;
         public InfoText InfoText => infoText;
+        public TileMenuActionSetup ActionButtonSetup => actionButtonSetup;
 
         private void OnEnable()
         {
@@ -36,6 +40,10 @@ namespace Game.TileMenu
 
         public void DismissTileMenu()
         {
+            if (useActionButton && actionButtonSetup.typeOfAction == ETileMenuActionType.InvokeTerminal)
+            {
+                EventBroker.TriggerOnTerminalDismissed();
+            }
             EventBroker.TriggerOnTileMenuDismissed();
         }
         

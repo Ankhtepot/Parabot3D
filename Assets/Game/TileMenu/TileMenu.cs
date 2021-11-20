@@ -21,7 +21,7 @@ namespace Game.TileMenu
     {
         [Header("Buttons")] 
         [SerializeField] private InfoTileMenuButton infoButton;
-        [SerializeField] private GameObject actionButton;
+        [SerializeField] private ActionTileMenuButton actionButton;
         [Header("Pivots")] 
         [SerializeField] private Transform upperLeftPivot;
         [SerializeField] private Transform upperRightPivot;
@@ -77,17 +77,28 @@ namespace Game.TileMenu
 
             if (setting.UseInfoButton)
             {
-                var transform1 = infoButton.transform;
-                transform1.parent = buttonPivots[setting.InfoButtonPosition];
-                transform1.localPosition = Vector3Extensions.Zero;
+                SetButton(infoButton, setting.InfoButtonPosition);
                 infoButton.Set(setting.InfoText, null);
-                buttons.Add(infoButton);
+            }
+
+            if (setting.UseActionButton)
+            {
+                SetButton(actionButton, setting.ActionButtonPosition);
+                actionButton.Set(setting.ActionButtonSetup);
             }
 
             foreach (var button in buttons)
             {
                 button.ShowUp();
             }
+        }
+
+        private void SetButton(TileMenuButton button, ETileMenuButtonPosition position)
+        {
+            var transform1 = button.transform;
+            transform1.parent = buttonPivots[position];
+            transform1.localPosition = Vector3Extensions.Zero;
+            buttons.Add(button);
         }
         
         private void Dismiss()

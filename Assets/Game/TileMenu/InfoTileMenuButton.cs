@@ -10,6 +10,7 @@ namespace Game.TileMenu
     {
         [ReadOnly, SerializeField] private InfoText infoText;
         private UnityAction postDismissAction;
+        
         protected override void OnMouseDown()
         {
             EventBroker.TriggerOnInfoTextInvoked(infoText.Text, postDismissAction);
