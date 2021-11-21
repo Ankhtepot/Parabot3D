@@ -18,9 +18,7 @@ namespace Game.UIParts.Terminal.Editor
         private SerializedProperty blockOnClose;
         
         //Messages
-        private SerializedProperty messageFrom;
-        private SerializedProperty messageTo;
-        private SerializedProperty messageText;
+        private SerializedProperty messageOperationSetting;
 
         private void OnEnable()
         {
@@ -33,9 +31,7 @@ namespace Game.UIParts.Terminal.Editor
             lockOnClose = serializedObject.FindProperty("lockOnClose");
             unblockUponClose = serializedObject.FindProperty("unblockUponClose");
             blockOnClose = serializedObject.FindProperty("blockAfterClose");
-            messageFrom = serializedObject.FindProperty("messageFrom");
-            messageTo = serializedObject.FindProperty("messageTo");
-            messageText = serializedObject.FindProperty("messageText");
+            messageOperationSetting = serializedObject.FindProperty("messageOperationSetting");
         }
 
         public override void OnInspectorGUI()
@@ -48,13 +44,7 @@ namespace Game.UIParts.Terminal.Editor
 
             if (actionType.enumValueIndex == 1)
             {
-                EditorGUI.indentLevel += 1;
-
-                EditorGUILayout.PropertyField(messageFrom);
-                EditorGUILayout.PropertyField(messageTo);
-                EditorGUILayout.PropertyField(messageText);
-
-                EditorGUI.indentLevel -= 1;
+                EditorGUILayout.PropertyField(messageOperationSetting);
             }
             
             #endregion Message Action
