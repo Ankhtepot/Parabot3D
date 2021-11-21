@@ -117,12 +117,13 @@ namespace Game.UIParts.Terminal
 
             messages.ForEach(message =>
             {
-                var newMessage = pool.GetFromPool(
-                        messagesPage.messagePrefab,
-                        Vector3Extensions.Zero,
-                        Quaternion.identity,
-                        messagesPage.content.gameObject)
-                    .GetComponent(typeof(TerminalMessageController)) as TerminalMessageController;
+                // var newMessage = pool.GetFromPool(
+                //         messagesPage.messagePrefab,
+                //         Vector3Extensions.Zero,
+                //         Quaternion.identity,
+                //         messagesPage.content.gameObject)
+                //     .GetComponent(typeof(TerminalMessageController)) as TerminalMessageController;
+                var newMessage = SpawnItem<TerminalMessageController>(messagesPage.messagePrefab, messagesPage.content);
 
                 newMessage!.Set(message);
             });
@@ -138,16 +139,22 @@ namespace Game.UIParts.Terminal
             {
                 if (operation.operationType == ETerminalOperationType.OpenDoor)
                 {
-                    var newDoorOp = pool.GetFromPool(
-                            operationsPage.doorOperationPrefab,
-                            Vector3Extensions.Zero,
-                            Quaternion.identity,
-                            operationsPage.content.gameObject)
-                        .GetComponent(typeof(DoorsOperationItemController)) as DoorsOperationItemController;
+                    var newDoorOp = SpawnItem<DoorsOperationItemController>(operationsPage.doorOperationPrefab, operationsPage.content);
 
                     newDoorOp!.Set(operation);
                 }
             });
+        }
+
+        private T SpawnItem<T>(GameObject item, Component parent) where T : Component
+        {
+            return pool.GetFromPool(
+                           item,
+                           Vector3Extensions.Zero,
+                           Quaternion.identity,
+                           parent.gameObject)
+                       .GetComponent(typeof(T)) as T
+                   ?? throw new ArgumentException($"GO: {item.name} does not have component of type {typeof(T).Name}.");
         }
 
         private void ActivatePage(string pageName)

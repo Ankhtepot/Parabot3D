@@ -42,6 +42,7 @@ namespace Game.UIParts.Terminal
         {
             public DoorController targetDoor;
             public LabelText location;
+            public Transform cameraHolder;
             //Set on Open
             public bool unlockOnOpen = true;
             public bool unblockUponOpen;
