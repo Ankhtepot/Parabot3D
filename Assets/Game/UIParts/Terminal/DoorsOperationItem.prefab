@@ -123,10 +123,11 @@ MonoBehaviour:
   doorsAtLocationAtText: {fileID: 11400000, guid: d98a542f6e74c574ea93cc4cd6d7d8a6,
     type: 2}
   doorsLocationTMP: {fileID: 1764694252486563865}
-  openButton: {fileID: 0}
-  closeButton: {fileID: 0}
+  openButton: {fileID: 1989615675920075242}
+  closeButton: {fileID: 6129086794137702507}
   cameraHolder: {fileID: 0}
   cameraTargetImage: {fileID: 0}
+  doorController: {fileID: 0}
 --- !u!1 &6844987689922724395
 GameObject:
   m_ObjectHideFlags: 0
@@ -532,7 +533,7 @@ PrefabInstance:
     - target: {fileID: 2517089746601428421, guid: 1230739e99618fa478ac8bbe1c1f70a7,
         type: 3}
       propertyPath: m_Name
-      value: ButtonWrapper (1)
+      value: CloseButton
       objectReference: {fileID: 0}
     - target: {fileID: 7305594460558409413, guid: 1230739e99618fa478ac8bbe1c1f70a7,
         type: 3}
@@ -583,6 +584,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 3632746215201156928}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6129086794137702507 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7450353018755104555, guid: 1230739e99618fa478ac8bbe1c1f70a7,
+    type: 3}
+  m_PrefabInstance: {fileID: 3632746215201156928}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a3023b18a3dbf243a11f10838faa2cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &9005071093025470145
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -698,7 +711,7 @@ PrefabInstance:
     - target: {fileID: 2517089746601428421, guid: 1230739e99618fa478ac8bbe1c1f70a7,
         type: 3}
       propertyPath: m_Name
-      value: ButtonWrapper
+      value: OpenButton
       objectReference: {fileID: 0}
     - target: {fileID: 7305594460558409413, guid: 1230739e99618fa478ac8bbe1c1f70a7,
         type: 3}
@@ -749,3 +762,15 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 9005071093025470145}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1989615675920075242 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7450353018755104555, guid: 1230739e99618fa478ac8bbe1c1f70a7,
+    type: 3}
+  m_PrefabInstance: {fileID: 9005071093025470145}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a3023b18a3dbf243a11f10838faa2cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -14,7 +14,8 @@ namespace Game.UIParts.Terminal
         [SerializeField] private Pages pages;
         [SerializeField] private MainPageSetup mainPage;
         [SerializeField] private MessagesPageSetup messagesPage;
-        
+        [SerializeField] private OperationsPageSetup operationsPage;
+
         private Dictionary<string, GameObject> pagesLookout = new Dictionary<string, GameObject>();
         private List<TerminalActionSetup> operations;
         private List<TerminalActionSetup> messages;
@@ -43,6 +44,7 @@ namespace Game.UIParts.Terminal
             mainPage.operationsButton.OnClickAddListener(OpenOperationsPage);
             mainPage.ExitButton.OnClickAddListener(DismissTerminal);
             messagesPage.backButton.OnClickAddListener(SetupTerminal);
+            operationsPage.backButton.OnClickAddListener(SetupTerminal);
         }
 
         private void Start()
@@ -122,15 +124,30 @@ namespace Game.UIParts.Terminal
                         messagesPage.content.gameObject)
                     .GetComponent(typeof(TerminalMessageController)) as TerminalMessageController;
 
-                newMessage!.Set(message.messageOperationSetting.messageFrom.Text,
-                    message.messageOperationSetting.messageTo.Text,
-                    message.messageOperationSetting.messageText.Text);
+                newMessage!.Set(message);
             });
         }
 
         private void OpenOperationsPage()
         {
             ActivatePage(pages.OperationsPageName);
+
+            operationsPage.content.RemoveChildren();
+
+            operations.ForEach(operation =>
+            {
+                if (operation.operationType == ETerminalOperationType.OpenDoor)
+                {
+                    var newDoorOp = pool.GetFromPool(
+                            operationsPage.doorOperationPrefab,
+                            Vector3Extensions.Zero,
+                            Quaternion.identity,
+                            operationsPage.content.gameObject)
+                        .GetComponent(typeof(DoorsOperationItemController)) as DoorsOperationItemController;
+
+                    newDoorOp!.Set(operation);
+                }
+            });
         }
 
         private void ActivatePage(string pageName)
@@ -160,6 +177,7 @@ namespace Game.UIParts.Terminal
             mainPage.operationsButton.OnClickRemoveListener(OpenOperationsPage);
             mainPage.ExitButton.OnClickRemoveListener(DismissTerminal);
             messagesPage.backButton.OnClickRemoveListener(SetupTerminal);
+            operationsPage.backButton.OnClickRemoveListener(SetupTerminal);
         }
 
         [Serializable]
@@ -173,7 +191,7 @@ namespace Game.UIParts.Terminal
             public string MessagesPageName => messagesPage.name;
             public string OperationsPageName => operationsPage.name;
         }
-        
+
         [Serializable]
         private class MainPageSetup
         {
@@ -181,13 +199,21 @@ namespace Game.UIParts.Terminal
             public ButtonController operationsButton;
             public ButtonController ExitButton;
         }
-        
+
         [Serializable]
         private class MessagesPageSetup
         {
             public Transform content;
             public ButtonController backButton;
             public GameObject messagePrefab;
+        }
+
+        [Serializable]
+        private class OperationsPageSetup
+        {
+            public Transform content;
+            public ButtonController backButton;
+            public GameObject doorOperationPrefab;
         }
     }
 }

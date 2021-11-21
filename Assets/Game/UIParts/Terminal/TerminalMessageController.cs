@@ -18,11 +18,12 @@ namespace Game.UIParts.Terminal
         [SerializeField] private LabelText toLabelText;
         [SerializeField] private LabelText messageLabelText;
 
-        public void Set(string from, string to, string message)
+        public void Set(TerminalActionSetup newSetting)
         {
-            fromTMP.text = from;
-            toTMP.text = to;
-            messageTMP.text = message;
+            var setting = newSetting.messageOperationSetting;
+            fromTMP.text = setting.messageFrom.Text;
+            toTMP.text = setting.messageTo.Text;
+            messageTMP.text = setting.messageText.Text;
             fromLabelTMP.text = fromLabelText.Text;
             toLabelTMP.text = toLabelText.Text;
             messageLabelTMP.text = messageLabelText.Text;

@@ -1,7 +1,7 @@
 using System;
 using Game.CombinedTilesSimple.SlidingDoors;
-using UnityEngine;
 using ScriptableObjects;
+using UnityEngine;
 
 namespace Game.UIParts.Terminal
 {
@@ -24,22 +24,8 @@ namespace Game.UIParts.Terminal
 
         //Operations
         public ETerminalOperationType operationType = ETerminalOperationType.None;
-
         //OpenDoors
-        public DoorController targetDoor;
-
-        //Set on Open
-        public bool unlockOnOpen = true;
-        public bool unblockUponOpen;
-
-        public bool blockAfterOpen;
-
-        //Set on Close
-        public bool lockOnClose = true;
-        public bool unblockUponClose;
-
-        public bool blockAfterClose;
-
+        public OpenDoorOperationSetting openDoorOperationSetting;
         //Messages
         public MessageOperationSetting messageOperationSetting;
 
@@ -49,6 +35,21 @@ namespace Game.UIParts.Terminal
             public LabelText messageFrom;
             public LabelText messageTo;
             public InfoText messageText;
+        }
+        
+        [Serializable]
+        public class OpenDoorOperationSetting
+        {
+            public DoorController targetDoor;
+            public LabelText location;
+            //Set on Open
+            public bool unlockOnOpen = true;
+            public bool unblockUponOpen;
+            public bool blockAfterOpen;
+            //Set on Close
+            public bool closeAndLock = true;
+            public bool unblockUponClose;
+            public bool blockAfterClose;
         }
     }
 }

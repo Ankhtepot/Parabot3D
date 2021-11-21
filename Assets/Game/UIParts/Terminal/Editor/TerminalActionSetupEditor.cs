@@ -8,29 +8,14 @@ namespace Game.UIParts.Terminal.Editor
         private SerializedProperty actionType;
         private SerializedProperty operationType;
 
-        // Door action
-        private SerializedProperty targetDoor;
-        private SerializedProperty unlockOnOpen;
-        private SerializedProperty unblockUponOpen;
-        private SerializedProperty blockOnOpen;
-        private SerializedProperty lockOnClose;
-        private SerializedProperty unblockUponClose;
-        private SerializedProperty blockOnClose;
-        
-        //Messages
+        private SerializedProperty openDoorOperationSetting;
         private SerializedProperty messageOperationSetting;
 
         private void OnEnable()
         {
             actionType = serializedObject.FindProperty("actionType");
             operationType = serializedObject.FindProperty("operationType");
-            targetDoor = serializedObject.FindProperty("targetDoor");
-            unlockOnOpen = serializedObject.FindProperty("unlockOnOpen");
-            unblockUponOpen = serializedObject.FindProperty("unblockUponOpen");
-            blockOnOpen = serializedObject.FindProperty("blockAfterOpen");
-            lockOnClose = serializedObject.FindProperty("lockOnClose");
-            unblockUponClose = serializedObject.FindProperty("unblockUponClose");
-            blockOnClose = serializedObject.FindProperty("blockAfterClose");
+            openDoorOperationSetting = serializedObject.FindProperty("openDoorOperationSetting");
             messageOperationSetting = serializedObject.FindProperty("messageOperationSetting");
         }
 
@@ -42,7 +27,7 @@ namespace Game.UIParts.Terminal.Editor
 
             #region Message Action
 
-            if (actionType.enumValueIndex == 1)
+            if (actionType.enumValueIndex == 1) // ETerminalActionType.Message
             {
                 EditorGUILayout.PropertyField(messageOperationSetting);
             }
@@ -51,35 +36,14 @@ namespace Game.UIParts.Terminal.Editor
 
             #region Operation Action
             
-            if (actionType.enumValueIndex == 2)
+            if (actionType.enumValueIndex == 2) // ETerminalActionType.Operation
             {
                 EditorGUI.indentLevel += 1;
                 EditorGUILayout.PropertyField(operationType);
 
-                if (operationType.enumValueIndex == 1)
+                if (operationType.enumValueIndex == 1) // ETerminalOperationType.OpenDoor
                 {
-                    EditorGUI.indentLevel += 1;
-                    EditorGUILayout.PropertyField(targetDoor);
-
-                    if (targetDoor.objectReferenceValue != null)
-                    {
-                        EditorGUI.indentLevel += 1;
-                        
-                        EditorGUILayout.LabelField("Open action settings:");
-                        EditorGUI.indentLevel += 1;
-                        EditorGUILayout.PropertyField(unlockOnOpen);
-                        EditorGUILayout.PropertyField(unblockUponOpen);
-                        EditorGUILayout.PropertyField(blockOnOpen);
-                        EditorGUI.indentLevel -= 1;
-                        EditorGUILayout.LabelField("Close action settings:");
-                        EditorGUI.indentLevel += 1;
-                        EditorGUILayout.PropertyField(lockOnClose);
-                        EditorGUILayout.PropertyField(unblockUponClose);
-                        EditorGUILayout.PropertyField(blockOnClose);
-                        EditorGUI.indentLevel -= 1;
-                    }
-                    
-                    EditorGUI.indentLevel -= 1;
+                    EditorGUILayout.PropertyField(openDoorOperationSetting);
                 }
                 EditorGUI.indentLevel -= 1;
             }
