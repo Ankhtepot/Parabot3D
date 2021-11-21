@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd00c0e7da74a484e92b03d9ce125690, type: 3}
   m_Name: Messages
   m_EditorClassIdentifier: 
-  label: 5
+  label: 7

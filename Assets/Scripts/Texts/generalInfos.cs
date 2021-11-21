@@ -24,7 +24,7 @@ namespace Texts
             { ETexts.RespawnPlatform, "This is respawn platform, where you come back to existence if you perish prematurely." },
             { ETexts.DemoFinish, "You have reached the end of this demo, congratulations!" },
             { ETexts.DeathWithoutRespawnPointActivated, "You haven't activated any respawn point. Level will be restarted." },
-            { ETexts.MailL1T1, "R1D1 escaped! Stop him atr all cost, he must not get out of this prison!" }
+            { ETexts.MailL1T1, "R1D1 escaped! Stop him at all cost, he must not get out of this prison!" }
         };
 
         public static string getText(ETexts text)

@@ -4,7 +4,6 @@ using System.Linq;
 using Extensions;
 using Services;
 using UnityEngine;
-using UnityEngine.UI;
 using Utilities.ObjectPool;
 
 namespace Game.UIParts.Terminal
@@ -12,24 +11,24 @@ namespace Game.UIParts.Terminal
     public class TerminalController : MonoBehaviour
     {
         [SerializeField] private GameObject rootCanvas;
-        [Header("Pages")]
+        [Header("Pages")] 
         [SerializeField] private GameObject mainMenuPage;
         [SerializeField] private GameObject messagesPage;
         [SerializeField] private GameObject operationsPage;
         [Header("Main page")]
-        [SerializeField] private GameObject messagesButtonWrapper;
-        [SerializeField] private Button messagesButton;
-        [SerializeField] private GameObject operationsButtonWrapper;
-        [SerializeField] private Button operationsButton;
-        [SerializeField] private Button ExitButton;
-        [Header("Messages Page")]
+        [SerializeField] private ButtonController messagesButton;
+        [SerializeField] private ButtonController operationsButton;
+        [SerializeField] private ButtonController ExitButton;
+
+        [Header("Messages Page")] 
         [SerializeField] private Transform messagesContent;
+        [SerializeField] private ButtonController messagesBackButton;
         [SerializeField] private GameObject terminalMessagePrefab;
 
         private List<TerminalActionSetup> operations;
         private List<TerminalActionSetup> messages;
         private ObjectPool pool;
-        
+
         private void OnEnable()
         {
             EventBroker.OnTerminalInvoked += InvokeTerminal;
@@ -37,10 +36,11 @@ namespace Game.UIParts.Terminal
             operations = new List<TerminalActionSetup>();
             messages = new List<TerminalActionSetup>();
             rootCanvas.SetActive(false);
-            
-            messagesButton.onClick.AddListener(OpenMessagesPage);
-            operationsButton.onClick.AddListener(OpenOperationsPage);
-            ExitButton.onClick.AddListener(DismissTerminal);
+
+            messagesButton.OnClickAddListener(OpenMessagesPage);
+            operationsButton.OnClickAddListener(OpenOperationsPage);
+            ExitButton.OnClickAddListener(DismissTerminal);
+            messagesBackButton.OnClickAddListener(SetupTerminal);
         }
 
         private void Start()
@@ -52,7 +52,7 @@ namespace Game.UIParts.Terminal
         {
             if (newSettings == null) return;
 
-            foreach(var setting in newSettings)
+            foreach (var setting in newSettings)
             {
                 switch (setting.actionType)
                 {
@@ -77,6 +77,10 @@ namespace Game.UIParts.Terminal
         private void SetupTerminal()
         {
             rootCanvas.SetActive(true);
+            
+            messagesPage.SetActive(false);
+            operationsPage.SetActive(false);
+            mainMenuPage.SetActive(true);
 
             int actionTypesCount = 0;
             if (messages.Count > 0) actionTypesCount += 1;
@@ -88,9 +92,9 @@ namespace Game.UIParts.Terminal
                 if (operations.Count > 0) OpenOperationsPage();
                 return;
             }
-            
-            messagesButtonWrapper.SetActive(messages.Any());
-            operationsButtonWrapper.SetActive(operations.Any());
+
+            messagesButton.gameObject.SetActive(messages.Any());
+            operationsButton.gameObject.SetActive(operations.Any());
         }
 
         private void OpenMessagesPage()
@@ -101,19 +105,24 @@ namespace Game.UIParts.Terminal
             operationsPage.SetActive(false);
 
             messagesContent.RemoveChildren();
-            
+
             messages.ForEach(message =>
             {
                 var newMessage = pool.GetFromPool(
-                    terminalMessagePrefab,
-                    Vector3Extensions.Zero,
-                    Quaternion.identity,
-                    messagesContent.gameObject)
+                        terminalMessagePrefab,
+                        Vector3Extensions.Zero,
+                        Quaternion.identity,
+                        messagesContent.gameObject)
                     .GetComponent(typeof(TerminalMessageController)) as TerminalMessageController;
-                
+
                 newMessage!.Set(message.messageFrom.Text, message.messageTo.Text, message.messageText.Text);
             });
             Debug.Log($"Registered {operations.Count} operations.");
+
+            if (operations.Count == 0)
+            {
+                // messagesBackButton.gameObject.SetActive(false);
+            }
         }
 
         private void OpenOperationsPage()
@@ -127,10 +136,9 @@ namespace Game.UIParts.Terminal
         private void DismissTerminal()
         {
             if (!rootCanvas.activeSelf) return;
-            
+
             operations.Clear();
             messages.Clear();
-            operationsButtonWrapper.SetActive(false);
             mainMenuPage.SetActive(true);
             messagesPage.SetActive(false);
             operationsPage.SetActive(false);
@@ -141,10 +149,11 @@ namespace Game.UIParts.Terminal
         {
             EventBroker.OnTerminalInvoked -= InvokeTerminal;
             EventBroker.OnTerminalDismissed -= DismissTerminal;
-            
-            messagesButton.onClick.RemoveListener(OpenMessagesPage);
-            operationsButton.onClick.RemoveListener(OpenOperationsPage);
-            ExitButton.onClick.RemoveListener(DismissTerminal);
+
+            messagesButton.OnClickRemoveListener(OpenMessagesPage);
+            operationsButton.OnClickRemoveListener(OpenOperationsPage);
+            ExitButton.OnClickRemoveListener(DismissTerminal);
+            messagesBackButton.OnClickRemoveListener(SetupTerminal);
         }
     }
 }

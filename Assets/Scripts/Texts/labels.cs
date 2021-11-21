@@ -7,35 +7,43 @@ namespace Texts
         public enum ELabel
         {
             None = 0,
-            Close,
-            Exit,
-            FromLeader,
-            L1_TerminalRoomTerminal_OpenEntryRoomDoor,
-            Messages,
-            Operations,
-            Open,
-            Test,
-            ToAll,
+            Back = 13,
+            Close = 1,
+            Exit = 2,
+            From = 3,
+            FromLeader = 4,
+            L1_TerminalRoomTerminal_OpenEntryRoomDoor = 5,
+            Message = 6,
+            Messages = 7,
+            Operations = 8,
+            Open = 9,
+            Test = 10,
+            To = 11,
+            ToAll = 12,
         }
 
         private static readonly Dictionary<ELabel, string> texts = new Dictionary<ELabel, string>()
         {
             { ELabel.None, "THIS LABEL IS NOT LISTED" },
+            { ELabel.Back, "Back" },
             { ELabel.Close, "Close" },
             { ELabel.Exit, "Exit" },
+            { ELabel.From, "From:" },
             { ELabel.FromLeader, "Your Superior Leader!" },
-            { ELabel.L1_TerminalRoomTerminal_OpenEntryRoomDoor, "Main room east door controller."},
+            { ELabel.L1_TerminalRoomTerminal_OpenEntryRoomDoor, "Main room east door controller." },
+            { ELabel.Message, "Message:" },
             { ELabel.Messages, "Messages" },
-            { ELabel.Operations, "Operations"},
+            { ELabel.Operations, "Operations" },
             { ELabel.Open, "Open" },
             { ELabel.Test, "Test" },
+            { ELabel.To, "To:" },
             { ELabel.ToAll, "To EVERYONE!" }
         };
 
         public static string GetLabel(ELabel label)
         {
-            return texts.TryGetValue(label, out var result) 
-                ? result 
+            return texts.TryGetValue(label, out var result)
+                ? result
                 : texts[ELabel.None];
         }
     }
