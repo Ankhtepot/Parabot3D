@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Game.TileMenu;
-using Game.UI_parts.Terminal;
+using Game.UIParts.Terminal;
 using Player;
 using UnityEngine;
 using UnityEngine.Events;

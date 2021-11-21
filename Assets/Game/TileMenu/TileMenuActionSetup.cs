@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Attributes;
-using Game.UI_parts.Terminal;
+using Game.UIParts.Terminal;
 using UnityEngine;
 
 namespace Game.TileMenu

@@ -1,5 +1,4 @@
-﻿using System;
-using Attributes;
+﻿using Attributes;
 using UnityEngine;
 
 namespace Player
@@ -10,8 +9,8 @@ namespace Player
 
         private void OnEnable()
         {
-            GC = GameController._Instance;
-            GameController.Subscribe(this);
+            GC = GameController.Instance;
+            GameController.PlayerController = this;
         }
 
         public void Death() {
@@ -25,7 +24,7 @@ namespace Player
 
         private void OnDisable()
         {
-            GameController.Unsubscribe<PlayerController>();
+            GameController.PlayerController = null;
         }
     }
 }

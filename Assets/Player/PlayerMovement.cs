@@ -1,4 +1,5 @@
 ﻿using Constants;
+using Triggers;
 using UnityEngine;
 
 namespace Player

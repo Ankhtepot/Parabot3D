@@ -1,5 +1,6 @@
 using System;
 using Attributes;
+using ScriptableObjects;
 using Services;
 using UnityEngine;
 using UnityEngine.Events;

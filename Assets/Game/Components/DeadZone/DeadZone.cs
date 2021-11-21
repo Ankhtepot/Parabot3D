@@ -34,10 +34,10 @@ namespace Game.Components.DeadZone
         {
             if (!other.CompareTag(tags.Player)) return;
 
-            if (GameController._Instance.hasActiveRespawnPoint)
+            if (GameController.Instance.hasActiveRespawnPoint)
                 GetComponent<InfoTextInvoker>().InvokeInfoText();
             else
-                GameController.GetSubscriber<PlayerController>().Death();
+                GameController.PlayerController.Death();
         }
     }
 }

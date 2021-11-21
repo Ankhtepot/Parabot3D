@@ -1,5 +1,7 @@
 using Attributes;
+using ScriptableObjects;
 using Services;
+using Triggers;
 using UnityEngine;
 
 namespace Game.TileMenu
@@ -47,7 +49,7 @@ namespace Game.TileMenu
             EventBroker.TriggerOnTileMenuDismissed();
         }
         
-        //TODO: Test whn middle button is selected, that only that one button is to be used
+        //TODO: Test when middle button is selected, that only that one button is to be used
         //TODO: If no middle button is selected, check uniqueness of positions for buttons
         private void OnDisable()
         {
