@@ -39,7 +39,7 @@ namespace Triggers
             }
 #endif
         
-            action();
+            action.Invoke();
         }
     }
 }
